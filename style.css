@@ -3,26 +3,64 @@
   margin: 0;
 }
 
+.header {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-line-pack: center;
+      align-content: center;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+  height: 60px;
+}
+
+.header__basket {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  border: 1px solid black;
+  border-radius: 15px;
+  width: 80px;
+  height: 20px;
+  text-decoration: none;
+  margin: 10px;
+}
+
 .products {
   display: -ms-grid;
   display: grid;
-  -ms-grid-columns: (1fr)[6];
-      grid-template-columns: repeat(6, 1fr);
+  -ms-grid-columns: (170px)[auto-fit];
+      grid-template-columns: repeat(auto-fit, 170px);
   gap: 10px;
 }
 
 .products__product {
-  border: 2px solid;
-  padding: 5px;
+  border: 1px solid;
+  padding: 8px;
 }
 
 .products__product_name {
-  font-family: "Courier New";
+  font-family: Arial, Helvetica, sans-serif;
+  text-align: center;
   font-size: 15px;
   font-weight: 10px;
+  margin: 10px;
 }
 
 .products__product_but {
+  margin: 5px;
   border-radius: 10px;
+  width: 80px;
+  float: right;
+  background-color: rgba(28, 28, 28, 0);
+  border: 1px solid black;
+  cursor: pointer;
 }
 /*# sourceMappingURL=style.css.map */
