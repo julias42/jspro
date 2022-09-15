@@ -1,0 +1,28 @@
+* {
+  padding: 0;
+  margin: 0;
+}
+
+.products {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (1fr)[6];
+      grid-template-columns: repeat(6, 1fr);
+  gap: 10px;
+}
+
+.products__product {
+  border: 2px solid;
+  padding: 5px;
+}
+
+.products__product_name {
+  font-family: "Courier New";
+  font-size: 15px;
+  font-weight: 10px;
+}
+
+.products__product_but {
+  border-radius: 10px;
+}
+/*# sourceMappingURL=style.css.map */

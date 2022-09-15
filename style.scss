@@ -1,0 +1,24 @@
+* {
+  padding: 0;
+  margin: 0;
+}
+.products {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 10px;
+
+  &__product {
+    border: 2px solid;
+    padding: 5px;
+
+    &_name {
+      font-family: "Courier New";
+      font-size: 15px;
+      font-weight: 10px;
+    }
+
+    &_but {
+      border-radius: 10px;
+    }
+  }
+}
