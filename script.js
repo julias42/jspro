@@ -10,12 +10,12 @@ const products =[
   {title: "mouses", price:250},
 ];
 
-const renderProductsItem = (title,price)=>{
+const renderProductsItem = ()=>{
   return `
   <div class="products__product">
     <img src="image/product_mouse.jpg" alt="photo">
-    <h1 class="products__product_name">${title}</h1>
-    <p class="products__product_price">${price} у.е</p>
+    <h1 class="products__product_name">${this.title}</h1>
+    <p class="products__product_price">${this.price} у.е</p>
     <button class="products__product_but">Добавить</button>
   </div>`
 };
