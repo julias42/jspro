@@ -1,4 +1,7 @@
 "use strict"
+
+const butEl = document.querySelector('.header__basket');
+const productsEl = document.querySelector('.products');
   
 const products =[
   {title: "mouse", price:150},
@@ -8,19 +11,21 @@ const products =[
 ];
 
 const renderProductsItem = (title,price)=>{
-  return `<div class="products__product">
-  <img src="image/product_mouse.jpg" alt="photo">
-  <h1 class="products__product_name">${title}</h1>
-  <p>${price}</p>
-</div>`
+  return `
+  <div class="products__product">
+    <img src="image/product_mouse.jpg" alt="photo">
+    <h1 class="products__product_name">${title}</h1>
+    <p class="products__product_price">${price} у.е</p>
+    <button class="products__product_but">Добавить</button>
+  </div>`
 };
 
 const renderProductsList = (list)=>{
   let productList = list.map(item=>renderProductsItem(item.title, item.price))
   .join("");
-  document.querySelector('.header__basket')
-  .addEventListener('click',(event)=>{
-    event.target.innerHTML = productList;
-  });
+  productsEl.innerHTML = productList;
 }
-renderProductsList(products);
+ renderProductsList(products);
+
+
+

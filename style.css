@@ -55,12 +55,16 @@
 }
 
 .products__product_but {
-  margin: 5px;
+  margin: 10px;
   border-radius: 10px;
   width: 80px;
   float: right;
   background-color: rgba(28, 28, 28, 0);
   border: 1px solid black;
   cursor: pointer;
+}
+
+.products__product_price {
+  text-align: center;
 }
 /*# sourceMappingURL=style.css.map */
