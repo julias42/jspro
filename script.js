@@ -20,6 +20,11 @@ class GoodsList {
     });
     document.querySelector('.products').innerHTML = listHtml;
   }
+  goodsPrices() {
+    this.goods.forEach(item => {
+      console.log(item.price++);
+    });
+  }
 }
 
 class GoodsItem {
