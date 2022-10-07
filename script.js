@@ -6,10 +6,10 @@ class GoodsList {
   }
   fetchgoods() {
     this.goods = [
-      { title: "Mouse", price: 150 },
-      { title: "Mat", price: 50 },
-      { title: "Book", price: 1050 },
-      { title: "Gamepads", price: 250 },
+      { id:1, title: "Mouse", price: 150 },
+      { id:1, title: "Mat", price: 50 },
+      { id:1, title: "Book", price: 1050 },
+      { id:1, title: "Gamepads", price: 250 },
     ];
   }
   render() {
@@ -21,11 +21,10 @@ class GoodsList {
     document.querySelector('.products').innerHTML = listHtml;
   }
   goodsPrices() {
-    this.goods.forEach(item => {
-      console.log(item.price++);
-    });
+    const total = this.goods.reduce((a, b) => a + b.price, 0);
+    document.querySelector('.header__total_number').innerHTML = total;
+    }    
   }
-}
 
 class GoodsItem {
   constructor(title, price) {
@@ -37,7 +36,7 @@ class GoodsItem {
   <div class="products__product">
     <img src="image/product_mouse.jpg" alt="photo">
     <h1 class="products__product_name">${this.title}</h1>
-    <h4 class="products__product_price">${this.price} у.е</h4>
+    <h4 class="products__product_price">${this.price} руб</h4>
     <button class="products__product_but">Добавить</button>
   </div>`
   };
@@ -46,5 +45,17 @@ class GoodsItem {
 const list = new GoodsList();
 list.fetchgoods();
 list.render();
+list.goodsPrices();
 
-
+/***
+ * Архитектура классов корзины
+ */
+class Basket{
+  addProduct(){} // добавление продуктов в корзину
+  removeProduct(){} //удаление продуктов из корзины
+}
+class Product{
+  renderProduct(){} // отображение продуктов в корзине 
+  productCount(){} // подсчёт кол-ва продуктов в корзине
+  productPrice(){} // подсчёт общей суммы покупок в корзине
+}
