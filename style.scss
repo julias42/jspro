@@ -11,6 +11,15 @@
   background: #222222;
   margin-bottom: 25px;
 
+  &__total {
+    display: flex;
+    align-items: center;
+    color: white;
+    &_number {
+      margin: 5px;
+    }
+  }
+
   &__basket {
     display: flex;
     justify-content: center;
@@ -57,8 +66,6 @@
       float: right;
       border: 1px solid white;
       cursor: pointer;
-
-
     }
 
     &_price {

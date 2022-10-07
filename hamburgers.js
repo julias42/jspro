@@ -1,6 +1,6 @@
 "use strict"
 
-class Humburgers{
+class Hamburgers{
   constructor(size, stuffing){
   this.hambs = [];
     this.size = size;
@@ -25,7 +25,7 @@ class Humburgers{
 
   }
   calculateCalories(){
-    
-  }
 
+  }
 }
+const bigBurger = new Hamburgers('Большой','с сыром');

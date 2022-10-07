@@ -17,6 +17,20 @@
   margin-bottom: 25px;
 }
 
+.header__total {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  color: white;
+}
+
+.header__total_number {
+  margin: 5px;
+}
+
 .header__basket {
   display: -webkit-box;
   display: -ms-flexbox;
