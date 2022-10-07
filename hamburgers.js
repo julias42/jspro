@@ -16,7 +16,7 @@ class Hamburgers{
 
   }
   getSize(){
-
+    return this.size;
   }
   getStuffing(){
 
@@ -29,3 +29,5 @@ class Hamburgers{
   }
 }
 const bigBurger = new Hamburgers('Большой','с сыром');
+
+Hamburgers.getSize();
