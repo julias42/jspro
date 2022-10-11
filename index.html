@@ -11,11 +11,16 @@
 </head>
 
 <body>
-  <div class="header">
-    <div class="header__total">Общая сумма товаров в корзине:<span class="header__total_number"></span>руб</div>
-    <a class="header__basket" href="">Корзина</a>
-  </div>
-  <div class="products"></div>
+  <header class="header">
+    <section class="header__total">Общая сумма товаров в корзине:<span class="header__total_number"></span>руб</section>
+    <button class="header__but" href="">Корзина</button>
+    <section class="header__basket">
+      <div class="header__basket_dropdown">
+        <div class="header__basket_dropdown-product"></div>
+      </div>
+    </section>
+  </header>
+  <main class="products"></main>
   <script src="script.js"></script>
   <script src="hamburgers.js"></script>
 </body>
