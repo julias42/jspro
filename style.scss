@@ -35,14 +35,17 @@
     cursor: pointer;
   }
 
-  &__basket {
+  &__dropdown {
     display: flex;
-    flex-direction: column;
-    align-items: center;
+    right: 5px;
+    top: 60px;
+    position: absolute;
+    width: 250px;
+    height: 250px;
     z-index: 2;
-    background-color: beige;
+    border: 2px solid black;
 
-    &_dropdown {}
+    &_product {}
   }
 }
 

@@ -51,19 +51,17 @@
   cursor: pointer;
 }
 
-.header__basket {
+.header__dropdown {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  right: 5px;
+  top: 60px;
+  position: absolute;
+  width: 250px;
+  height: 250px;
   z-index: 2;
-  background-color: beige;
+  border: 2px solid black;
 }
 
 .products {
