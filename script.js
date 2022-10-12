@@ -49,10 +49,13 @@ class GoodsList {
    let productHtml = '';
     this.goods.forEach(product=>{
       const productItem = new GoodsItemDropdown
-      (product.product_name, product.price);
+      (product.product_name, product.price, product.id_product, product.quantity);
       productHtml += productItem.renderProduct();
     })
     document.querySelector('.header__dropdown').innerHTML = productHtml;
+  }
+  addProductDropdown(){
+    document.querySelector('.')
   }
 }
 
@@ -74,17 +77,21 @@ class GoodsItem {
 }
 
 class GoodsItemDropdown {
-  constructor(product_name, price){ 
+  constructor(product_name, price, id_product, quantity){ 
     this.product_name = product_name;
     this.price = price;
+    this.id_product = id_product;
+    this.quantity = quantity;
   }
 
   renderProduct() { 
     return`
     <div class="header__dropdown_product">
+      <h4>${this.id_product}<h4>
       <h4>${this.product_name}</h4>
       <p>${this.price} руб</p>
-      <button>Удалить</button>
+      <p>Кол-во ${this.quantity} шт</p>
+      <button class="header__dropdown_but">Удалить</button>
     </div>`
   };
 }

@@ -54,9 +54,17 @@
       display: flex;
       justify-content: space-around;
       align-items: center;
-      height: 55px;
+      height: 100px;
       width: 100%;
       box-shadow: 4px 4px 8px 0px rgba(34, 60, 80, 0.2);
+    }
+    &_but {
+      margin: 10px;
+      border-radius: 3px;
+      width: 100px;
+      height: 25px;
+      border: 1px solid white;
+      cursor: pointer;
     }
   }
 }
