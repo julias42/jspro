@@ -54,8 +54,14 @@ class GoodsList {
     })
     document.querySelector('.header__dropdown').innerHTML = productHtml;
   }
+
   addProductDropdown(){
-    document.querySelector('.')
+    document.querySelector('.products__product_but')
+    .addEventListener('click',()=>{
+      if(!(this.quantity in this.goods)){
+       
+      }
+    })
   }
 }
 
