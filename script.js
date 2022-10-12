@@ -1,6 +1,6 @@
 "use strict"
 
-const API = `https://raw.githubusercontent.com/GeekBrainsTutorial/online-store-api/master/responses/getBasket.json`;
+const API = `https://raw.githubusercontent.com/GeekBrainsTutorial/online-store-api/master/responses`;
 
 class GoodsList {
   constructor(container = '.products') {
@@ -11,15 +11,19 @@ class GoodsList {
         this.goods = data.contents;
         this.render();
         this.goodsPrices();
+        this.dropdownMenu();
+        this.renderProduct();
       });
   }
+
   _getGoods() {
-    return fetch(`${API}`)
+    return fetch(`${API}/getBasket.json`)
       .then(result => result.json())
       .catch(error => {
         alert(error);
       });
   }
+
   render() {
     let listHtml = '';
     this.goods.forEach(good => {
@@ -28,9 +32,27 @@ class GoodsList {
     });
     document.querySelector('.products').innerHTML = listHtml;
   }
+
   goodsPrices() {
     const total = this.goods.reduce((a, b) => a + b.price, 0);
     document.querySelector('.header__total_number').innerHTML = total;
+  }
+
+  dropdownMenu(){
+  const butEl = document.querySelector('.header__but');
+  const dropDownEl = document.querySelector('.header__dropdown')
+  butEl.addEventListener('click',()=>{
+    dropDownEl.classList.toggle('hidden');
+  })}
+
+  renderProduct(){
+   let productHtml = '';
+    this.goods.forEach(product=>{
+      const productItem = new GoodsItemDropdown
+      (product.product_name, product.price);
+      productHtml += productItem.renderProduct();
+    })
+    document.querySelector('.header__dropdown').innerHTML = productHtml;
   }
 }
 
@@ -39,6 +61,7 @@ class GoodsItem {
     this.product_name = product_name;
     this.price = price;
   }
+
   render() {
     return `
   <div class="products__product">
@@ -49,21 +72,34 @@ class GoodsItem {
   </div>`
   };
 }
-/*class GoodsDropdown {
-  constructor(container = '.header__basket')
-}
-*/
-const list = new GoodsList();
 
+class GoodsItemDropdown {
+  constructor(product_name, price){ 
+    this.product_name = product_name;
+    this.price = price;
+  }
+
+  renderProduct() { 
+    return`
+    <div class="header__dropdown_product">
+      <h4>${this.product_name}</h4>
+      <p>${this.price} руб</p>
+      <button>Удалить</button>
+    </div>`
+  };
+}
+const list = new GoodsList();
+  
 /***
  * Архитектура классов корзины
  */
 class Basket {
-  addProduct() { } // добавление продуктов в корзину
-  removeProduct() { } //удаление продуктов из корзины
+  addProduct() {}// добавление продуктов в корзину 
+  removeProduct() {}//удаление продуктов из корзины
 }
+
 class Product {
-  renderProduct() { } // отображение продуктов в корзине 
+ renderProduct() { }// отображение продуктов в корзине 
   productCount() { } // подсчёт кол-ва продуктов в корзине
   productPrice() { } // подсчёт общей суммы покупок в корзине
 }

@@ -3,6 +3,10 @@
   margin: 0;
 }
 
+.hidden {
+  visibility: hidden;
+}
+
 .header {
   display: flex;
   align-content: center;
@@ -37,15 +41,23 @@
 
   &__dropdown {
     display: flex;
+    flex-direction: column;
     right: 5px;
     top: 60px;
     position: absolute;
-    width: 250px;
+    width: 420px;
     height: 250px;
     z-index: 2;
-    border: 2px solid black;
+    box-shadow: 4px 4px 8px 0px rgba(34, 60, 80, 0.2);
 
-    &_product {}
+    &_product {
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      height: 55px;
+      width: 100%;
+      box-shadow: 4px 4px 8px 0px rgba(34, 60, 80, 0.2);
+    }
   }
 }
 
