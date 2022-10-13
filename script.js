@@ -1,6 +1,12 @@
 "use strict"
 
 const API = `https://raw.githubusercontent.com/GeekBrainsTutorial/online-store-api/master/responses`;
+const cartProducts = document.querySelector('.products');
+const totalNumber = document.querySelector('.header__total_number');
+const butEl = document.querySelector('.header__but');
+const dropDownEl = document.querySelector('.header__dropdown');
+const addProductBut = document.querySelector('.products__product_but');
+const removeBut = document.querySelectorAll('.header__dropdown_remove-but');
 
 class GoodsList {
   constructor(container = '.products') {
@@ -13,6 +19,7 @@ class GoodsList {
         this.goodsPrices();
         this.dropdownMenu();
         this.renderProduct();
+        this.removeProductDropdown();
       });
   }
 
@@ -30,19 +37,17 @@ class GoodsList {
       const goodItem = new GoodsItem(good.product_name, good.price);
       listHtml += goodItem.render();
     });
-    document.querySelector('.products').innerHTML = listHtml;
+    cartProducts.innerHTML = listHtml;
   }
 
   goodsPrices() {
     const total = this.goods.reduce((a, b) => a + b.price, 0);
-    document.querySelector('.header__total_number').innerHTML = total;
+    totalNumber.innerHTML = total;
   }
 
   dropdownMenu(){
-  const butEl = document.querySelector('.header__but');
-  const dropDownEl = document.querySelector('.header__dropdown')
   butEl.addEventListener('click',()=>{
-    dropDownEl.classList.toggle('hidden');
+   dropDownEl.classList.toggle('hidden');
   })}
 
   renderProduct(){
@@ -52,16 +57,16 @@ class GoodsList {
       (product.product_name, product.price, product.id_product, product.quantity);
       productHtml += productItem.renderProduct();
     })
-    document.querySelector('.header__dropdown').innerHTML = productHtml;
+    dropDownEl.innerHTML = productHtml;
   }
 
   addProductDropdown(){
-    document.querySelector('.products__product_but')
-    .addEventListener('click',()=>{
-      if(!(this.quantity in this.goods)){
-       
-      }
-    })
+    addProductBut.addEventListener('click',()=>{
+        
+    });
+  }
+
+  removeProductDropdown(){ 
   }
 }
 
@@ -78,8 +83,8 @@ class GoodsItem {
     <h1 class="products__product_name">${this.product_name}</h1>
     <h4 class="products__product_price">${this.price} руб</h4>
     <button class="products__product_but">Добавить</button>
-  </div>`
-  };
+  </div>`;
+  }
 }
 
 class GoodsItemDropdown {
@@ -97,9 +102,9 @@ class GoodsItemDropdown {
       <h4>${this.product_name}</h4>
       <p>${this.price} руб</p>
       <p>Кол-во ${this.quantity} шт</p>
-      <button class="header__dropdown_but">Удалить</button>
-    </div>`
-  };
+      <button class="header__dropdown_remove-but">Удалить</button>
+    </div>`;
+  }
 }
 const list = new GoodsList();
   
