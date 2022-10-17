@@ -3,6 +3,10 @@
   margin: 0;
 }
 
+.hidden {
+  display: none;
+}
+
 .header {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -31,7 +35,7 @@
   margin: 5px;
 }
 
-.header__basket {
+.header__but {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -48,6 +52,47 @@
   text-decoration: none;
   margin: 10px;
   background-color: white;
+  cursor: pointer;
+}
+
+.header__dropdown {
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  right: 5px;
+  top: 60px;
+  position: absolute;
+  width: 420px;
+  height: 250px;
+  z-index: 2;
+  background-color: white;
+  -webkit-box-shadow: 4px 4px 8px 0px rgba(34, 60, 80, 0.2);
+          box-shadow: 4px 4px 8px 0px rgba(34, 60, 80, 0.2);
+}
+
+.header__dropdown_product {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  height: 100px;
+  width: 100%;
+  -webkit-box-shadow: 4px 4px 8px 0px rgba(34, 60, 80, 0.2);
+          box-shadow: 4px 4px 8px 0px rgba(34, 60, 80, 0.2);
+}
+
+.header__dropdown_remove-but {
+  margin: 10px;
+  border-radius: 3px;
+  width: 100px;
+  height: 25px;
+  border: 1px solid white;
+  cursor: pointer;
 }
 
 .products {
@@ -74,6 +119,10 @@
   padding: 8px;
   background: #222222;
   border-radius: 5px;
+}
+
+.products__product_img {
+  width: 100%;
 }
 
 .products__product_name {
