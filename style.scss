@@ -2,6 +2,7 @@
   padding: 0;
   margin: 0;
 }
+
 .hidden {
   display: none;
 }
@@ -43,6 +44,7 @@
       display: flex;
       flex-direction: column;
     }
+
     &_product {
       display: flex;
       justify-content: space-around;
@@ -52,6 +54,7 @@
       box-shadow: 4px 4px 8px 0px rgba(34, 60, 80, 0.2);
       margin: 10px;
     }
+
     &_remove-but {
       margin: 10px;
       border-radius: 3px;
@@ -66,6 +69,7 @@
       align-items: center;
       margin: 6px;
     }
+
     &_number {
       margin: 5px;
     }
@@ -115,4 +119,12 @@
       color: white;
     }
   }
+}
+
+.text {
+  margin-left: 15px;
+}
+
+.text__but {
+  margin: 15px;
 }

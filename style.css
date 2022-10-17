@@ -157,4 +157,12 @@
   text-align: center;
   color: white;
 }
+
+.text {
+  margin-left: 15px;
+}
+
+.text__but {
+  margin: 15px;
+}
 /*# sourceMappingURL=style.css.map */

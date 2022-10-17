@@ -56,69 +56,84 @@ class GoodsItem {
 }
 
 const list = new GoodsList();
-  
+
 /***
  * Архитектура классов корзины 
  */
 
-class Basket extends GoodsList{
-  constructor(container = '.header__dropdown_products'){
+class Basket extends GoodsList {
+  constructor(container = '.header__dropdown_products') {
     super(container);
     this._dropdownMenu();
     this._getBasket()
-      .then(()=>{
+      .then(() => {
         this.renderProduct();
         this.productPrice();
       });
   }
 
-  _getBasket(){
-   return super.getGoods();
+  _getBasket() {
+    return super.getGoods();
   }
 
-  _dropdownMenu(){
-    butEl.addEventListener('click',()=>{
-     dropDownEl.classList.toggle('hidden');
+  _dropdownMenu() {
+    butEl.addEventListener('click', () => {
+      dropDownEl.classList.toggle('hidden');
     });
   }
 
-  renderProduct(){
+  renderProduct() {
     let productHtml = '';
-     this.goods.forEach(product=>{
-       const productItem = new Product
-       (product.product_name, product.price, product.id_product, product.quantity);
-       productHtml += productItem.renderProduct();
-     })
-     dropDownProducts.innerHTML = productHtml;
-   }
+    this.goods.forEach(product => {
+      const productItem = new Product
+        (product.product_name, product.price, product.id_product, product.quantity);
+      productHtml += productItem.renderProduct();
+    })
+    dropDownProducts.innerHTML = productHtml;
+  }
 
-   productPrice() {
+  productPrice() {
     const total = this.goods.reduce((a, b) => a + b.price, 0);
-    totalNumber.innerHTML = total; } // подсчёт общей суммы покупок в корзине
+    totalNumber.innerHTML = total;
+  } // подсчёт общей суммы покупок в корзине
 
-  
-  addProduct() {}// добавление продуктов в корзину 
-  removeProduct() {}//удаление продуктов из корзины
+
+  addProduct() { }// добавление продуктов в корзину 
+  removeProduct() { }//удаление продуктов из корзины
   productCount() { } // подсчёт кол-ва продуктов в корзине
 }
 
 class Product {
-  constructor(id_product, product_name, price, quantity){
+  constructor(id_product, product_name, price, quantity) {
     this.product_name = product_name;
     this.price = price;
     this.id_product = id_product;
     this.quantity = quantity;
   }
 
- renderProduct() { 
-  return`
+  renderProduct() {
+    return `
   <div class="header__dropdown_product">
     <h4>${this.id_product}</h4>
     <h4>${this.product_name}</h4>
     <p>${this.price} руб</p>
     <p>Кол-во ${this.quantity} шт</p>
     <button class="header__dropdown_remove-but">Удалить</button>
-  </div>`;}// отображение продуктов в корзине 
-  
+  </div>`;
+  }// отображение продуктов в корзине 
+
 }
-const listBasket = new Basket();
+new Basket();
+
+//код к заданию для  4 урока 
+
+const textRegExp = document.querySelector('.text');
+document.querySelector('.text__but').addEventListener('click', () => {
+  textRegExp.classList.toggle('hidden');
+});
+
+document.querySelector('.text__but_regexp').addEventListener('click', () => {
+  textRegExp.textContent.replace(/'/g, '"');
+  console.log(textRegExp.textContent.replace(/'/g, '"'));
+});
+
