@@ -2,9 +2,10 @@
 
 const API = `https://raw.githubusercontent.com/GeekBrainsTutorial/online-store-api/master/responses`;
 const cartProducts = document.querySelector('.products');
-const totalNumber = document.querySelector('.header__total_number');
+const totalNumber = document.querySelector('.header__dropdown_number');
 const butEl = document.querySelector('.header__but');
 const dropDownEl = document.querySelector('.header__dropdown');
+const dropDownProducts = document.querySelector('.header__dropdown_products');
 const addProductBut = document.querySelector('.products__product_but');
 const removeBut = document.querySelectorAll('.header__dropdown_remove-but');
 
@@ -12,18 +13,14 @@ class GoodsList {
   constructor(container = '.products') {
     this.container = container;
     this.goods = [];
-    this._getGoods()
+    this.getGoods()
       .then(data => {
         this.goods = data.contents;
         this.render();
-        this.goodsPrices();
-        this.dropdownMenu();
-        this.renderProduct();
-        this.removeProductDropdown();
       });
   }
 
-  _getGoods() {
+  getGoods() {
     return fetch(`${API}/getBasket.json`)
       .then(result => result.json())
       .catch(error => {
@@ -38,35 +35,6 @@ class GoodsList {
       listHtml += goodItem.render();
     });
     cartProducts.innerHTML = listHtml;
-  }
-
-  goodsPrices() {
-    const total = this.goods.reduce((a, b) => a + b.price, 0);
-    totalNumber.innerHTML = total;
-  }
-
-  dropdownMenu(){
-  butEl.addEventListener('click',()=>{
-   dropDownEl.classList.toggle('hidden');
-  })}
-
-  renderProduct(){
-   let productHtml = '';
-    this.goods.forEach(product=>{
-      const productItem = new GoodsItemDropdown
-      (product.product_name, product.price, product.id_product, product.quantity);
-      productHtml += productItem.renderProduct();
-    })
-    dropDownEl.innerHTML = productHtml;
-  }
-
-  addProductDropdown(){
-    addProductBut.addEventListener('click',()=>{
-        
-    });
-  }
-
-  removeProductDropdown(){ 
   }
 }
 
@@ -87,37 +55,70 @@ class GoodsItem {
   }
 }
 
-class GoodsItemDropdown {
-  constructor(product_name, price, id_product, quantity){ 
+const list = new GoodsList();
+  
+/***
+ * Архитектура классов корзины 
+ */
+
+class Basket extends GoodsList{
+  constructor(container = '.header__dropdown_products'){
+    super(container);
+    this._dropdownMenu();
+    this._getBasket()
+      .then(()=>{
+        this.renderProduct();
+        this.productPrice();
+      });
+  }
+
+  _getBasket(){
+   return super.getGoods();
+  }
+
+  _dropdownMenu(){
+    butEl.addEventListener('click',()=>{
+     dropDownEl.classList.toggle('hidden');
+    });
+  }
+
+  renderProduct(){
+    let productHtml = '';
+     this.goods.forEach(product=>{
+       const productItem = new Product
+       (product.product_name, product.price, product.id_product, product.quantity);
+       productHtml += productItem.renderProduct();
+     })
+     dropDownProducts.innerHTML = productHtml;
+   }
+
+   productPrice() {
+    const total = this.goods.reduce((a, b) => a + b.price, 0);
+    totalNumber.innerHTML = total; } // подсчёт общей суммы покупок в корзине
+
+  
+  addProduct() {}// добавление продуктов в корзину 
+  removeProduct() {}//удаление продуктов из корзины
+  productCount() { } // подсчёт кол-ва продуктов в корзине
+}
+
+class Product {
+  constructor(id_product, product_name, price, quantity){
     this.product_name = product_name;
     this.price = price;
     this.id_product = id_product;
     this.quantity = quantity;
   }
 
-  renderProduct() { 
-    return`
-    <div class="header__dropdown_product">
-      <h4>${this.id_product}<h4>
-      <h4>${this.product_name}</h4>
-      <p>${this.price} руб</p>
-      <p>Кол-во ${this.quantity} шт</p>
-      <button class="header__dropdown_remove-but">Удалить</button>
-    </div>`;
-  }
-}
-const list = new GoodsList();
+ renderProduct() { 
+  return`
+  <div class="header__dropdown_product">
+    <h4>${this.id_product}</h4>
+    <h4>${this.product_name}</h4>
+    <p>${this.price} руб</p>
+    <p>Кол-во ${this.quantity} шт</p>
+    <button class="header__dropdown_remove-but">Удалить</button>
+  </div>`;}// отображение продуктов в корзине 
   
-/***
- * Архитектура классов корзины
- */
-class Basket {
-  addProduct() {}// добавление продуктов в корзину 
-  removeProduct() {}//удаление продуктов из корзины
 }
-
-class Product {
- renderProduct() { }// отображение продуктов в корзине 
-  productCount() { } // подсчёт кол-ва продуктов в корзине
-  productPrice() { } // подсчёт общей суммы покупок в корзине
-}
+const listBasket = new Basket();

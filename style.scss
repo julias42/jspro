@@ -14,16 +14,6 @@
   background: #222222;
   margin-bottom: 25px;
 
-  &__total {
-    display: flex;
-    align-items: center;
-    color: white;
-
-    &_number {
-      margin: 5px;
-    }
-  }
-
   &__but {
     display: flex;
     justify-content: center;
@@ -39,23 +29,28 @@
   }
 
   &__dropdown {
-    flex-direction: column;
     right: 5px;
     top: 60px;
     position: absolute;
-    width: 420px;
-    height: 250px;
+    min-width: 420px;
+    min-height: 200px;
     z-index: 2;
     background-color: white;
     box-shadow: 4px 4px 8px 0px rgba(34, 60, 80, 0.2);
+    box-sizing: border-box;
 
+    &_products {
+      display: flex;
+      flex-direction: column;
+    }
     &_product {
       display: flex;
       justify-content: space-around;
       align-items: center;
-      height: 100px;
-      width: 100%;
+      min-height: 100px;
+      max-width: 100%;
       box-shadow: 4px 4px 8px 0px rgba(34, 60, 80, 0.2);
+      margin: 10px;
     }
     &_remove-but {
       margin: 10px;
@@ -64,6 +59,15 @@
       height: 25px;
       border: 1px solid white;
       cursor: pointer;
+    }
+
+    &_total {
+      display: flex;
+      align-items: center;
+      margin: 6px;
+    }
+    &_number {
+      margin: 5px;
     }
   }
 }
