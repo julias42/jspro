@@ -125,7 +125,7 @@ class Product {
 }
 new Basket();
 
-//код к заданию для  4 урока 
+//код к заданию для дз 4 урока 
 
 const textRegExp = document.querySelector('.text');
 document.querySelector('.text__but').addEventListener('click', () => {
@@ -133,7 +133,7 @@ document.querySelector('.text__but').addEventListener('click', () => {
 });
 
 document.querySelector('.text__but_regexp').addEventListener('click', () => {
-  textRegExp.textContent.replace(/'/g, '"');
-  console.log(textRegExp.textContent.replace(/'/g, '"'));
+  textRegExp.innerHTML = textRegExp.textContent
+  .replace(/^'|(\s)'|'(\s)|'$/g, '$1"$2');
+  //console.log(textRegExp.textContent.replace(/^'|(\s)'|'(\s)|'$/g, '$1"$2'));
 });
-
