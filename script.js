@@ -1,6 +1,38 @@
 "use strict"
 
 const API = `https://raw.githubusercontent.com/GeekBrainsTutorial/online-store-api/master/responses`;
+
+const app = new Vue({
+  el: '#app',
+  data: {
+    products: [],
+  },
+
+  methods: {
+    getProducts(url) {
+      return fetch(url)
+        .then(result => result.json)
+        .catch(error => {
+          console.log(error)
+        });
+    },
+  },
+
+  mounted() {
+    this.getProducts(`${API}/getBasket.json`)
+      .then(data => {
+        for (let el of data) {
+          this.products.push(el);
+        }
+      });
+  },
+
+})
+
+
+
+
+/*const API = `https://raw.githubusercontent.com/GeekBrainsTutorial/online-store-api/master/responses`;
 const cartProducts = document.querySelector('.products');
 const totalNumber = document.querySelector('.header__dropdown_number');
 const butEl = document.querySelector('.header__but');
@@ -61,7 +93,7 @@ const list = new GoodsList();
  * Архитектура классов корзины 
  */
 
-class Basket extends GoodsList {
+/*class Basket extends GoodsList {
   constructor(container = '.header__dropdown_products') {
     super(container);
     this._dropdownMenu();
@@ -136,4 +168,4 @@ document.querySelector('.text__but_regexp').addEventListener('click', () => {
   textRegExp.textContent.replace(/'/g, '"');
   console.log(textRegExp.textContent.replace(/'/g, '"'));
 });
-
+*/
