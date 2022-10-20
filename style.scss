@@ -15,6 +15,32 @@
   background: #222222;
   margin-bottom: 25px;
 
+  &__find {
+    position: absolute;
+    top: 15px;
+    right: 195px;
+    background: none;
+    border: none;
+    height: 30px;
+    width: 120px;
+    color: white;
+
+    &_button {
+      display: flex;
+      position: absolute;
+      top: 15px;
+      right: 155px;
+      width: 30px;
+      height: 30px;
+      background: url(image/search.svg) center center no-repeat;
+      text-indent: -999px;
+      border: none;
+      outline: none;
+      cursor: pointer;
+    }
+  }
+
+
   &__but {
     display: flex;
     justify-content: center;

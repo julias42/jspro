@@ -13,6 +13,10 @@
 <body>
   <div id="app">
     <header class="header">
+      <form action="#" class="header__search" @submit.prevent="filter">
+        <input class="header__find" type="text" placeholder="Поиск по магазину" v-model="userSearch">
+        <input class="header__find_button" type="submit">
+      </form>
       <button @click="show=!show" class="header__but">Корзина</button>
       <section v-show="show" class="header__dropdown">
         <div class="header__dropdown_products">
@@ -21,16 +25,16 @@
             <h4>{{item.product_name}}</h4>
             <p>{{item.price}} руб</p>
             <p>Кол-во {{item.quantity}} шт</p>
-            <button class="header__dropdown_remove-but">Удалить</button>
+            <button @click.prevent="removeProduct(item)" class=" header__dropdown_remove-but">Удалить</button>
           </div>
         </div>
-        <div class="header__dropdown_total">Сумма всех покупок в корзине:<span
-            class="header__dropdown_number">{{productPrice()}}</span>
+        <div v-for="item of cart" class="header__dropdown_total">Сумма всех покупок в корзине:<span
+            class="header__dropdown_number">{{totalPrice()}}</span>
           руб</div>
       </section>
     </header>
     <main class="products">
-      <div class="products__product" v-for="product of products">
+      <div class="products__product" v-for="product of filtered">
         <img class="products__product_img" src="image/product_image.jpg" alt="photo">
         <h1 class="products__product_name">{{product.product_name}}</h1>
         <h4 class="products__product_price">{{product.price}} руб</h4>

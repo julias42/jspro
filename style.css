@@ -21,6 +21,33 @@
   margin-bottom: 25px;
 }
 
+.header__find {
+  position: absolute;
+  top: 15px;
+  right: 195px;
+  background: none;
+  border: none;
+  height: 30px;
+  width: 120px;
+  color: white;
+}
+
+.header__find_button {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  position: absolute;
+  top: 15px;
+  right: 155px;
+  width: 30px;
+  height: 30px;
+  background: url(image/search.svg) center center no-repeat;
+  text-indent: -999px;
+  border: none;
+  outline: none;
+  cursor: pointer;
+}
+
 .header__but {
   display: -webkit-box;
   display: -ms-flexbox;
