@@ -15,6 +15,13 @@
   background: #222222;
   margin-bottom: 25px;
 
+  &__logo {
+    position: absolute;
+    top: 20px;
+    left: 25px;
+    color: white;
+  }
+
   &__find {
     position: absolute;
     top: 15px;
@@ -53,6 +60,11 @@
     margin: 10px;
     background-color: white;
     cursor: pointer;
+  }
+
+  &__but:hover {
+    background-color: rgba(28, 28, 28, 0);
+    color: white;
   }
 
   &__dropdown {
@@ -138,6 +150,11 @@
       float: right;
       border: 1px solid white;
       cursor: pointer;
+    }
+
+    &_but:hover {
+      background-color: rgba(28, 28, 28, 0);
+      color: white;
     }
 
     &_price {
