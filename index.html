@@ -13,11 +13,19 @@
 <body>
   <div id="app">
     <header class="header">
-      <button class="header__but">Корзина</button>
-      <section class="header__dropdown hidden">
+      <button @click="show=!show" class="header__but">Корзина</button>
+      <section v-show="show" class="header__dropdown">
         <div class="header__dropdown_products">
+          <div v-for="item of cart" class="header__dropdown_product">
+            <h4>{{item.id_product}}</h4>
+            <h4>{{item.product_name}}</h4>
+            <p>{{item.price}} руб</p>
+            <p>Кол-во {{item.quantity}} шт</p>
+            <button class="header__dropdown_remove-but">Удалить</button>
+          </div>
         </div>
-        <div class="header__dropdown_total">Сумма всех покупок в корзине:<span class="header__dropdown_number"></span>
+        <div class="header__dropdown_total">Сумма всех покупок в корзине:<span
+            class="header__dropdown_number">{{productPrice()}}</span>
           руб</div>
       </section>
     </header>
@@ -26,7 +34,7 @@
         <img class="products__product_img" src="image/product_image.jpg" alt="photo">
         <h1 class="products__product_name">{{product.product_name}}</h1>
         <h4 class="products__product_price">{{product.price}} руб</h4>
-        <button class="products__product_but">Добавить</button>
+        <button @click="addProduct(product)" class="products__product_but">Добавить</button>
       </div>
     </main>
   </div>

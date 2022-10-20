@@ -6,27 +6,51 @@ const app = new Vue({
   el: '#app',
   data: {
     products: [],
+    filtered: [],
+    cart:[],
+    userSearch:'',
+    show:false
+
   },
 
   methods: {
     getProducts(url) {
       return fetch(url)
-        .then(result => result.json)
+        .then(result => result.json())
         .catch(error => {
-          console.log(error)
-        });
+          console.log(error);
+        })
     },
+
+    filter(){
+      const regExp = regExp()
+    },
+    addProduct(item){
+      const find = this.cart.find(product=>product.id_product == item.id_product);
+        if(find){
+          find.quantity++;
+        }else{
+          const cartItem = Object.assign({quantity:1}, item);
+          this.cart.push(cartItem);
+        }
+    },
+    
+    productPrice() {
+      const total = this.cart.reduce((a, b) => a * b.price, 0);
+      return total;
+     },
   },
 
-  mounted() {
+  mounted(){
     this.getProducts(`${API}/getBasket.json`)
       .then(data => {
-        for (let el of data) {
+        for (let el of data.contents) {
           this.products.push(el);
+          this.filtered.push(el);
         }
       });
   },
-
+ 
 })
 
 
