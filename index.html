@@ -35,7 +35,7 @@
       </section>
     </header>
     <main class="products">
-      <products :products="filtered"></products>
+      <products :products="filtered" @add-product:="addProduct"></products>
     </main>
   </div>
   <!--  <p class="text hidden">One: 'Hi Mary.' Two: 'Oh, hi.'
