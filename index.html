@@ -30,17 +30,12 @@
           </div>
         </div>
         <div v-for="item of cart" class="header__dropdown_total">Сумма всех покупок в корзине:<span
-            class="header__dropdown_number">{{totalPrice()}}</span>
+            class="header__dropdown_number">{{item.price * item.quantity}}</span>
           руб</div>
       </section>
     </header>
     <main class="products">
-      <div class="products__product" v-for="product of filtered">
-        <img class="products__product_img" src="image/product_image.jpg" alt="photo">
-        <h1 class="products__product_name">{{product.product_name}}</h1>
-        <h4 class="products__product_price">{{product.price}} руб</h4>
-        <button @click="addProduct(product)" class="products__product_but">Добавить</button>
-      </div>
+      <products :products="filtered"></products>
     </main>
   </div>
   <!--  <p class="text hidden">One: 'Hi Mary.' Two: 'Oh, hi.'
@@ -62,7 +57,8 @@
   <button class="text__but">Клик</button>
   <button class="text__but_regexp">Клак</button>-->
   <script src="https://cdn.jsdelivr.net/npm/vue@2.7.8"></script>
-  <script src="script.js"></script>
+  <script src="products.js"></script>
+  <script src="main.js"></script>
 </body>
 
 </html>

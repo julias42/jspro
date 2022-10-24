@@ -11,6 +11,7 @@ const app = new Vue({
     cart: [],
     userSearch: '',
     show: false,
+    error: false
   },
 
   methods: {
@@ -31,7 +32,7 @@ const app = new Vue({
     addProduct(item) {
       const find = this.cart.find(product => product.id_product == item.id_product);
       if (find) {
-        find.quantity++;
+        find.quantity++; 
       } else {
         const cartItem = Object.assign({ quantity: 1 }, item);
         this.cart.push(cartItem);
@@ -39,20 +40,13 @@ const app = new Vue({
     },
 
     removeProduct(item) {
-      let index = this.cart.indexOf(item);
-      if (index > -1) {
-        let product = this.cart[index];
-        product.quantity--;
-        this.cart.splice(index, 1);
+      if (data.total===1) {
+       if(item.quantity>1){
+         item.quantity--;
+       }
+      }else{
+        this.cart.splice(this.cart.indexOf(item), 1);
       }
-    },
-
-    totalPrice() {
-      let total = 0;
-      for (let item of this.cart) {
-        total += item.price * item.quantity;
-      }
-      return total;
     }
   },
 
