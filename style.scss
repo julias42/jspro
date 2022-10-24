@@ -2,6 +2,7 @@
   padding: 0;
   margin: 0;
 }
+
 .hidden {
   display: none;
 }
@@ -14,15 +15,38 @@
   background: #222222;
   margin-bottom: 25px;
 
-  &__total {
-    display: flex;
-    align-items: center;
+  &__logo {
+    position: absolute;
+    top: 20px;
+    left: 25px;
+    color: white;
+  }
+
+  &__find {
+    position: absolute;
+    top: 15px;
+    right: 195px;
+    background: none;
+    border: none;
+    height: 30px;
+    width: 120px;
     color: white;
 
-    &_number {
-      margin: 5px;
+    &_button {
+      display: flex;
+      position: absolute;
+      top: 15px;
+      right: 155px;
+      width: 30px;
+      height: 30px;
+      background: url(image/search.svg) center center no-repeat;
+      text-indent: -999px;
+      border: none;
+      outline: none;
+      cursor: pointer;
     }
   }
+
 
   &__but {
     display: flex;
@@ -38,25 +62,37 @@
     cursor: pointer;
   }
 
+  &__but:hover {
+    background-color: rgba(28, 28, 28, 0);
+    color: white;
+  }
+
   &__dropdown {
-    flex-direction: column;
     right: 5px;
     top: 60px;
     position: absolute;
-    width: 420px;
-    height: 250px;
+    min-width: 420px;
+    min-height: 200px;
     z-index: 2;
     background-color: white;
     box-shadow: 4px 4px 8px 0px rgba(34, 60, 80, 0.2);
+    box-sizing: border-box;
+
+    &_products {
+      display: flex;
+      flex-direction: column;
+    }
 
     &_product {
       display: flex;
       justify-content: space-around;
       align-items: center;
-      height: 100px;
-      width: 100%;
+      min-height: 100px;
+      max-width: 100%;
       box-shadow: 4px 4px 8px 0px rgba(34, 60, 80, 0.2);
+      margin: 10px;
     }
+
     &_remove-but {
       margin: 10px;
       border-radius: 3px;
@@ -64,6 +100,16 @@
       height: 25px;
       border: 1px solid white;
       cursor: pointer;
+    }
+
+    &_total {
+      display: flex;
+      align-items: center;
+      margin: 6px;
+    }
+
+    &_number {
+      margin: 5px;
     }
   }
 }
@@ -106,9 +152,22 @@
       cursor: pointer;
     }
 
+    &_but:hover {
+      background-color: rgba(28, 28, 28, 0);
+      color: white;
+    }
+
     &_price {
       text-align: center;
       color: white;
     }
   }
+}
+
+.text {
+  margin-left: 15px;
+}
+
+.text__but {
+  margin: 15px;
 }
