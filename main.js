@@ -32,7 +32,7 @@ const app = new Vue({
     addProduct(item) {
       const find = this.cart.find(product => product.id_product == item.id_product);
       if (find) {
-        find.quantity++; 
+        find.quantity++;
       } else {
         const cartItem = Object.assign({ quantity: 1 }, item);
         this.cart.push(cartItem);
@@ -40,11 +40,11 @@ const app = new Vue({
     },
 
     removeProduct(item) {
-      if (data.total===1) {
-       if(item.quantity>1){
-         item.quantity--;
-       }
-      }else{
+      if (data.total === 1) {
+        if (item.quantity > 1) {
+          item.quantity--;
+        }
+      } else {
         this.cart.splice(this.cart.indexOf(item), 1);
       }
     }

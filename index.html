@@ -19,23 +19,12 @@
         <input class="header__find_button" type="submit">
       </form>
       <button @click="show=!show" class="header__but">Корзина</button>
-      <section v-show="show" class="header__dropdown">
-        <div class="header__dropdown_products">
-          <div v-for="item of cart" class="header__dropdown_product">
-            <h4>{{item.id_product}}</h4>
-            <h4>{{item.product_name}}</h4>
-            <p>{{item.price}} руб</p>
-            <p>Кол-во {{item.quantity}} шт</p>
-            <button @click.prevent="removeProduct(item)" class=" header__dropdown_remove-but">Удалить</button>
-          </div>
-        </div>
-        <div v-for="item of cart" class="header__dropdown_total">Сумма всех покупок в корзине:<span
-            class="header__dropdown_number">{{item.price * item.quantity}}</span>
-          руб</div>
-      </section>
+      <cart :cart_item="cart" :show="show">
+      </cart>
     </header>
-    <main class="products">
-      <products :products="filtered" @add-product:="addProduct"></products>
+    <main>
+      <products :products="filtered" @add-product="addProduct">
+      </products>
     </main>
   </div>
   <!--  <p class="text hidden">One: 'Hi Mary.' Two: 'Oh, hi.'
@@ -57,7 +46,7 @@
   <button class="text__but">Клик</button>
   <button class="text__but_regexp">Клак</button>-->
   <script src="https://cdn.jsdelivr.net/npm/vue@2.7.8"></script>
-  <script src="products.js"></script>
+  <script src="productsComponent.js"></script>
   <script src="main.js"></script>
 </body>
 
