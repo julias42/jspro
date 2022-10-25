@@ -8,7 +8,7 @@ const app = new Vue({
     catalogUrl: `/catalogData.json`,
     products: [],
     filtered: [],
-    cart: [],
+    basket: [],
     userSearch: '',
     show: false,
     error: false
@@ -30,13 +30,14 @@ const app = new Vue({
     },
 
     addProduct(item) {
-      const find = this.cart.find(product => product.id_product == item.id_product);
+      const find = this.basket.find(product => product.id_product == item.id_product);
       if (find) {
         find.quantity++;
       } else {
         const cartItem = Object.assign({ quantity: 1 }, item);
-        this.cart.push(cartItem);
+        this.basket.push(cartItem);
       }
+      console.log(this.basket);
     },
 
     removeProduct(item) {
@@ -45,7 +46,7 @@ const app = new Vue({
           item.quantity--;
         }
       } else {
-        this.cart.splice(this.cart.indexOf(item), 1);
+        this.basket.splice(this.basket.indexOf(item), 1);
       }
     }
   },

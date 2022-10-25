@@ -14,12 +14,9 @@
   <div id="app">
     <header class="header">
       <h3 class="header__logo">E-SHOP</h3>
-      <form action="#" class="header__search" @submit.prevent="filter">
-        <input class="header__find" type="text" placeholder="Поиск по магазину" v-model="userSearch">
-        <input class="header__find_button" type="submit">
-      </form>
+      <filter-box></filter-box>
       <button @click="show=!show" class="header__but">Корзина</button>
-      <cart :cart_item="cart" :show="show">
+      <cart :cart_item="basket" :show="show">
       </cart>
     </header>
     <main>
@@ -47,6 +44,8 @@
   <button class="text__but_regexp">Клак</button>-->
   <script src="https://cdn.jsdelivr.net/npm/vue@2.7.8"></script>
   <script src="productsComponent.js"></script>
+  <script src="cartComponent.js"></script>
+  <script src="filterComponent.js"></script>
   <script src="main.js"></script>
 </body>
 
