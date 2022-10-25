@@ -16,7 +16,7 @@
       <h3 class="header__logo">E-SHOP</h3>
       <filter-box></filter-box>
       <button @click="show=!show" class="header__but">Корзина</button>
-      <cart :basket="basket" :show="show">
+      <cart :basket="basket" :show="show" :visible="visible">
       </cart>
     </header>
     <main>

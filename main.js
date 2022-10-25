@@ -12,7 +12,7 @@ const app = new Vue({
     userSearch: '',
     show: false,
     error: false,
-    total: 0
+    visible: true
   },
 
   methods: {
@@ -21,6 +21,7 @@ const app = new Vue({
         .then(result => result.json())
         .catch(error => {
           console.log(error);
+          this.error = true;
         })
     },
 
@@ -37,21 +38,24 @@ const app = new Vue({
       } else {
         const cartItem = Object.assign({ quantity: 1 }, item);
         this.basket.push(cartItem);
+        this.visible = false;
       }
     },
 
     removeProduct(item) {
       this.getProducts(`${API}/deleteFromBasket.json`)
-       .then(data=>{
-      if (data.result === 1) {
-        if (item.quantity > 1) {
-          item.quantity--;
-        }else{
-        this.basket.splice(this.basket.indexOf(item), 1);
-      }
-    }
-   });
-  },
+        .then(data => {
+          if (data.result === 1) {
+            if (item.quantity > 1) {
+              item.quantity--;
+            } else {
+              this.basket.splice(this.basket.indexOf(item), 1);
+            } if (this.basket.length === 0) {
+              this.visible = true;
+            }
+          }
+        });
+    },
 
   },
 

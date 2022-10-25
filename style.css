@@ -143,6 +143,19 @@
   margin: 5px;
 }
 
+.header__dropdown_empty {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  min-height: 200px;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
 .products {
   display: -ms-grid;
   display: grid;

@@ -110,6 +110,13 @@
     &_number {
       margin: 5px;
     }
+
+    &_empty {
+      display: flex;
+      justify-content: center;
+      min-height: 200px;
+      align-items: center;
+    }
   }
 }
 
