@@ -11,7 +11,8 @@ const app = new Vue({
     basket: [],
     userSearch: '',
     show: false,
-    error: false
+    error: false,
+    total: 0
   },
 
   methods: {
@@ -37,18 +38,21 @@ const app = new Vue({
         const cartItem = Object.assign({ quantity: 1 }, item);
         this.basket.push(cartItem);
       }
-      console.log(this.basket);
     },
 
     removeProduct(item) {
-      if (data.total === 1) {
+      this.getProducts(`${API}/deleteFromBasket.json`)
+       .then(data=>{
+      if (data.result === 1) {
         if (item.quantity > 1) {
           item.quantity--;
-        }
-      } else {
+        }else{
         this.basket.splice(this.basket.indexOf(item), 1);
       }
     }
+   });
+  },
+
   },
 
   mounted() {
