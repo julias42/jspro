@@ -12,7 +12,7 @@ const app = new Vue({
     userSearch: '',
     show: false,
     error: false,
-    visible: true
+    visible: false
   },
 
   methods: {
@@ -21,8 +21,14 @@ const app = new Vue({
         .then(result => result.json())
         .catch(error => {
           console.log(error);
-          this.error = true;
         })
+    },
+    getTotal(){
+      let total = 0;
+       this.filtered.map((item)=>{
+         total += (item.quantity * item.price);
+      });
+      return total;
     },
 
     filter() {
@@ -44,36 +50,28 @@ const app = new Vue({
 
     removeProduct(item) {
       this.getProducts(`${API}/deleteFromBasket.json`)
-        .then(data => {
-          if (data.result === 1) {
-            if (item.quantity > 1) {
-              item.quantity--;
-            } else {
-              this.basket.splice(this.basket.indexOf(item), 1);
-            } if (this.basket.length === 0) {
-              this.visible = true;
-            }
-          }
-        });
-    },
-
+       .then(data=>{
+      if (data.result === 1) {
+        if (item.quantity > 1) {
+          item.quantity--;
+        }else{
+        this.filtered.splice(this.filtered.indexOf(item), 1);
+      }if(this.filtered.length === 0){
+        this.visible = true;
+      }
+    }
+   });
+  },
   },
 
   mounted() {
-    this.getProducts(`${API + this.catalogUrl}`)
+    this.getProducts(`${this.catalogUrl}`)
       .then(data => {
         for (let el of data) {
           this.products.push(el);
           this.filtered.push(el);
         }
       });
-    this.getProducts(`catalogData.json`)
-      .then(data => {
-        for (let el of data) {
-          this.products.push(el);
-          this.filtered.push(el);
-        }
-      })
   },
 
 })
