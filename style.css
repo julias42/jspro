@@ -1526,6 +1526,18 @@ summary::-webkit-details-marker {
   margin-bottom: 73px;
 }
 
+.cart_content-box {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
 .cart_card {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -1566,6 +1578,9 @@ summary::-webkit-details-marker {
   text-align: center;
   font-style: normal;
   width: 100%;
+}
+
+.cart_none_text {
   font-weight: 400;
   font-size: 24px;
   line-height: 29px;
@@ -1676,6 +1691,7 @@ input[type="number"]::-webkit-outer-spin-button {
   display: -ms-flexbox;
   display: flex;
   max-width: 652px;
+  max-height: 50px;
   -ms-flex-pack: distribute;
       justify-content: space-around;
   margin-bottom: 128px;
@@ -1709,6 +1725,7 @@ input[type="number"]::-webkit-outer-spin-button {
   -ms-flex-line-pack: start;
       align-content: flex-start;
   gap: 75px;
+  max-width: 360px;
 }
 
 .cart_form {

@@ -64,14 +64,20 @@
       </div>
       <a class="header_link" href="registration.html"><img src="img/login.svg" alt="login"></a>
       <a class="header_link" href="cart.html"><img src="img/cart.svg" alt="cart"></a>
-      <div class="circle_cart"></div>
+      <div class="circle_cart">{{getCount()}}</div>
     </div>
   </header>
   <div class="shopping_cart center">
     <h2 class="shopping_zag">SHOPPING CART</h2>
   </div>
   <div class="cart_content center">
-    <cart :products="filtered" :visible="visible"></cart>
+    <div class="cart_content-box">
+      <cart :products="filtered" :visible="visible"></cart>
+      <div class="cart_button_box center">
+        <a class="cart_but" href="#">Clear shopping cart</a>
+        <a class="cart_but" href="#">Continue shopping</a>
+      </div>
+    </div>
     <div class="form_cart">
       <div class="cart_form">
         <h2 class="cart_form_zag">SHIPPING ADRESS</h2>
@@ -92,10 +98,6 @@
         <hr class="total_line">
         <a class="checkout_but" href="#">PROCEED TO CHECKOUT</a>
       </div>
-    </div>
-    <div class="cart_button_box center">
-      <a class="cart_but" href="#">Clear shopping cart</a>
-      <a class="cart_but" href="#">Continue shopping</a>
     </div>
   </div>
   <footer class="center_footer center">
