@@ -1,17 +1,4 @@
-Vue.component('cart', {
-  props: ['products', 'visible'],
-  template: `
-    <section class="cart_card">
-      <div class="cart_none" v-show="visible">
-      <h3 class="cart_none_text">Ваша корзина пуста</h3>
-    </div>
-          <cart_item v-for="item of products" 
-          :cart_item="item">
-          </cart_item>
-    </section>`
-});
-
-Vue.component('cart_item', {
+const  cart_item = {
   props: ['cart_item'],
   template: `
   <div class="cart">
@@ -25,6 +12,83 @@ Vue.component('cart_item', {
       <li>Quantity: <input class="quantity" <span>{{cart_item.quantity}}</span></li>
     </ul>
   </div>
-  <div class="cart_close_btn" @click=$root.removeProduct(cart_item)></div>
+  <div class="cart_close_btn" @click=$parent.removeProduct(cart_item)></div>
 </div> `
-});
+};
+
+const cart = {
+  components: {cart_item},
+  data(){
+    return{
+      catalogUrl: `/catalogData.json`,
+      products: [],
+      filtered: [],
+      visible: false
+    }
+  }, 
+
+  methods:{
+
+    /*addProduct(item) {
+      const find = this.basket.find(product => product.id_product == item.id_product);
+      if (find) {
+        find.quantity++;
+      } else {
+        const cartItem = Object.assign({ quantity: 1 }, item);
+        this.basket.push(cartItem);
+        this.visible = false;
+      }
+    },*/
+
+    removeProduct(item) {
+      this.$parent.getProducts(`${API}/deleteFromBasket.json`)
+        .then(data => {
+          if (data.result === 1) {
+            if (item.quantity > 1) {
+              item.quantity--;
+            } else {
+              this.filtered.splice(this.filtered.indexOf(item), 1);
+            } if (this.filtered.length === 0) {
+              this.visible = true;
+            }
+          }
+        });
+    },
+  },
+
+  computed:{
+
+    getTotal() {
+      let total = 0;
+      this.filtered.map((item) => {
+        total += (item.quantity * item.price);
+      });
+      return total;
+    },
+
+      getCount() {
+      return Object.values(this.products)
+        .reduce((acc, product) => acc + product.quantity, 0);
+    },
+  },
+
+  mounted() { 
+    this.$parent.getProducts(`${this.catalogUrl}`)
+      .then(data => {
+        for (let el of data) {
+          this.products.push(el);
+          this.filtered.push(el);
+        }
+      });
+  },
+
+  template: `
+    <section class="cart_card">
+      <div class="cart_none" v-show="visible">
+      <h3 class="cart_none_text">Your basket is empty</h3>
+    </div>
+          <cart_item v-for="item of filtered" 
+          :cart_item="item">
+          </cart_item>
+    </section>`
+};

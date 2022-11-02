@@ -13,7 +13,7 @@
   <header class="header center">
     <div class="header_left">
       <a href="index.html"><img src="img/logo.png" alt="logo"></a>
-      <filter-box></filter-box>
+      <filter_box></filter_box>
     </div>
     <div class="header_right">
       <input class="checkbox" type="checkbox">
@@ -64,7 +64,7 @@
       </div>
       <a class="header_link" href="registration.html"><img src="img/login.svg" alt="login"></a>
       <a class="header_link" href="cart.html"><img src="img/cart.svg" alt="cart"></a>
-      <div class="circle_cart">{{getCount()}}</div>
+      <div class="circle_cart">{{}}</div>
     </div>
   </header>
   <div class="shopping_cart center">
@@ -72,8 +72,8 @@
   </div>
   <div class="cart_content center">
     <div class="cart_content-box">
-      <cart :products="filtered" :visible="visible"></cart>
-      <div class="cart_button_box center">
+      <cart ref="cart"></cart>
+      <div class=" cart_button_box center">
         <a class="cart_but" href="#">Clear shopping cart</a>
         <a class="cart_but" href="#">Continue shopping</a>
       </div>
@@ -89,10 +89,10 @@
       <div class="form_total">
         <div class="total_heading">
           <div class="sub_total">
-            <h3>SUB TOTAL<span>{{getTotal()}}$</span></h3>
+            <h3>SUB TOTAL<span>{{$root.getTotal}}$</span></h3>
           </div>
           <div class="grand_total">
-            <h2>GRAND TOTAL<span>{{getTotal()}}$</span></h2>
+            <h2>GRAND TOTAL<span>$</span></h2>
           </div>
         </div>
         <hr class="total_line">

@@ -6,14 +6,12 @@ const app = new Vue({
   el: '#app',
   data: {
     catalogUrl: `/catalogData.json`,
-    products: [],
-    filtered: [],
     basket: [],
-    userSearch: '',
     show: false,
     error: false,
     visible: false
   },
+  components:{cart, filter_box},
 
   methods: {
     getProducts(url) {
@@ -23,61 +21,6 @@ const app = new Vue({
           console.log(error);
         })
     },
-
-    getTotal() {
-      let total = 0;
-      this.filtered.map((item) => {
-        total += (item.quantity * item.price);
-      });
-      return total;
-    },
-
-    getCount() {
-      return Object.values(this.products)
-        .reduce((acc, product) => acc + product.quantity, 0);
-    },
-
-    filter() {
-      const regexp = new RegExp(this.userSearch, 'i');
-      this.filtered = this.products.filter(product => regexp
-        .test(product.product_name));
-    },
-
-    addProduct(item) {
-      const find = this.basket.find(product => product.id_product == item.id_product);
-      if (find) {
-        find.quantity++;
-      } else {
-        const cartItem = Object.assign({ quantity: 1 }, item);
-        this.basket.push(cartItem);
-        this.visible = false;
-      }
-    },
-
-    removeProduct(item) {
-      this.getProducts(`${API}/deleteFromBasket.json`)
-        .then(data => {
-          if (data.result === 1) {
-            if (item.quantity > 1) {
-              item.quantity--;
-            } else {
-              this.filtered.splice(this.filtered.indexOf(item), 1);
-            } if (this.filtered.length === 0) {
-              this.visible = true;
-            }
-          }
-        });
-    },
-  },
-
-  mounted() {
-    this.getProducts(`${this.catalogUrl}`)
-      .then(data => {
-        for (let el of data) {
-          this.products.push(el);
-          this.filtered.push(el);
-        }
-      });
   },
 
 })
