@@ -54,21 +54,11 @@ const cart = {
           }
         });
     },
-  },
 
-  computed:{
-
-    getTotal() {
-      let total = 0;
-      this.filtered.map((item) => {
-        total += (item.quantity * item.price);
-      });
-      return total;
-    },
-
-      getCount() {
-      return Object.values(this.products)
-        .reduce((acc, product) => acc + product.quantity, 0);
+    filter(values) {
+      const regexp = new RegExp(values, 'i');
+      this.filtered = this.products.filter(product => regexp
+        .test(product.product_name));
     },
   },
 
