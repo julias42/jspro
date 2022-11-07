@@ -6,13 +6,13 @@ const app = new Vue({
   el: '#app',
   data: {
     catalogUrl: `/catalogData.json`,
-    products: [],
-    filtered: [],
-    cart: [],
-    userSearch: '',
+    basket: [],
     show: false,
-    error: false
+    error: false,
+    visible: false
   },
+
+  components:{cart, filter_box, cart_count, cart_total},
 
   methods: {
     getProducts(url) {
@@ -22,49 +22,6 @@ const app = new Vue({
           console.log(error);
         })
     },
-
-    filter() {
-      const regexp = new RegExp(this.userSearch, 'i');
-      this.filtered = this.products.filter(product => regexp
-        .test(product.product_name));
-    },
-
-    addProduct(item) {
-      const find = this.cart.find(product => product.id_product == item.id_product);
-      if (find) {
-        find.quantity++; 
-      } else {
-        const cartItem = Object.assign({ quantity: 1 }, item);
-        this.cart.push(cartItem);
-      }
-    },
-
-    removeProduct(item) {
-      if (data.total===1) {
-       if(item.quantity>1){
-         item.quantity--;
-       }
-      }else{
-        this.cart.splice(this.cart.indexOf(item), 1);
-      }
-    }
-  },
-
-  mounted() {
-    this.getProducts(`${API + this.catalogUrl}`)
-      .then(data => {
-        for (let el of data) {
-          this.products.push(el);
-          this.filtered.push(el);
-        }
-      });
-    this.getProducts(`catalogData.json`)
-      .then(data => {
-        for (let el of data) {
-          this.products.push(el);
-          this.filtered.push(el);
-        }
-      })
   },
 
 })
