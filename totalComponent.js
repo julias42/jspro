@@ -1,6 +1,7 @@
 const cart_total = {
   data(){
     return {
+      catalogUrl: `/catalogData.json`,
       filtered:[]
     }
   },
@@ -15,6 +16,16 @@ const cart_total = {
     },
 
   },
+
+  mounted() { 
+    this.$parent.getProducts(`${this.catalogUrl}`)
+      .then(data => {
+        for (let el of data) {
+          this.filtered.push(el);
+        }
+      });
+  },
+  
   template:
   `<div class="total_heading">
   <div class="sub_total">

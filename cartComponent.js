@@ -61,6 +61,7 @@ const cart = {
         .test(product.product_name));
     },
   },
+  
 
   mounted() { 
     this.$parent.getProducts(`${this.catalogUrl}`)
