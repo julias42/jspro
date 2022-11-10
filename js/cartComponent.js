@@ -1,4 +1,4 @@
-const  cart_item = {
+const cart_item = {
   props: ['cart_item'],
   template: `
   <div class="cart">
@@ -17,17 +17,17 @@ const  cart_item = {
 };
 
 const cart = {
-  components: {cart_item},
-  data(){
-    return{
-      catalogUrl: `/catalogData.json`,
+  components: { cart_item },
+  data() {
+    return {
+      catalogUrl: `db/catalogData.json`,
       products: [],
       filtered: [],
       visible: false
     }
-  }, 
+  },
 
-  methods:{
+  methods: {
 
     /*addProduct(item) {
       const find = this.basket.find(product => product.id_product == item.id_product);
@@ -61,9 +61,9 @@ const cart = {
         .test(product.product_name));
     },
   },
-  
 
-  mounted() { 
+
+  mounted() {
     this.$parent.getProducts(`${this.catalogUrl}`)
       .then(data => {
         for (let el of data) {

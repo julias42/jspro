@@ -1,11 +1,11 @@
 const cart_total = {
-  data(){
+  data() {
     return {
-      catalogUrl: `/catalogData.json`,
-      filtered:[]
+      catalogUrl: `db/catalogData.json`,
+      filtered: []
     }
   },
-  methods:{
+  methods: {
 
     getTotal() {
       let total = 0;
@@ -17,7 +17,7 @@ const cart_total = {
 
   },
 
-  mounted() { 
+  mounted() {
     this.$parent.getProducts(`${this.catalogUrl}`)
       .then(data => {
         for (let el of data) {
@@ -25,9 +25,9 @@ const cart_total = {
         }
       });
   },
-  
+
   template:
-  `<div class="total_heading">
+    `<div class="total_heading">
   <div class="sub_total">
     <h3>SUB TOTAL<span>{{getTotal()}}$</span></h3>
   </div>

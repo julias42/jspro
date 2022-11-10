@@ -5,14 +5,14 @@ const API = `https://raw.githubusercontent.com/GeekBrainsTutorial/online-store-a
 const app = new Vue({
   el: '#app',
   data: {
-    catalogUrl: `/catalogData.json`,
+    catalogUrl: `db/catalogData.json`,
     basket: [],
     show: false,
     error: false,
     visible: false
   },
 
-  components:{cart, filter_box, cart_count, cart_total},
+  components: { cart, filter_box, cart_count, cart_total },
 
   methods: {
     getProducts(url) {
