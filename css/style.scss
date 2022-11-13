@@ -1287,11 +1287,6 @@ summary::-webkit-details-marker {
     margin-bottom: 73px;
 }
 
-.cart_content-box {
-    display: flex;
-    flex-wrap: wrap;
-}
-
 .cart_card {
     display: flex;
     flex-wrap: wrap;
@@ -1320,8 +1315,13 @@ summary::-webkit-details-marker {
     justify-content: center;
     align-items: center;
     text-align: center;
+    visibility: hidden;
     font-style: normal;
     width: 100%;
+    font-weight: 400;
+    font-size: 24px;
+    line-height: 29px;
+    color: #222222;
 }
 
 .cart_none_text {
