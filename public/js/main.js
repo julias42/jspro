@@ -27,5 +27,5 @@ const app_cart = new Vue({
 
 new Vue({
   el: '#app_index',
-  components: { sale_center, cart_count, productsComponent },
+  components: { sale_center, cart_count, product },
 });
