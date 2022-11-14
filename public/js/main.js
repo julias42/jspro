@@ -2,8 +2,8 @@
 
 const API = `https://raw.githubusercontent.com/GeekBrainsTutorial/online-store-api/master/responses`;
 
-const app = new Vue({
-  el: '#app',
+const app_cart = new Vue({
+  el: '#app_cart',
   data: {
     catalogUrl: `db/catalogData.json`,
     basket: [],
@@ -23,5 +23,9 @@ const app = new Vue({
         })
     },
   },
+});
 
+new Vue({
+  el: '#app_index',
+  components: { sale_center, cart_count, productsComponent },
 });

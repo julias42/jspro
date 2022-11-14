@@ -1,10 +1,8 @@
 const express = require('express');
 const app = express();
+const fs = require('fs');
+const cart = require('./cartRouter');
 
-app.listen(3000, () => {
-    console.log('Связь с сервером установлена!')
-});
-
-app.get('/', (req, res) => {
-    res.send('<h1>Ответ от Сервера!!!</h2>');
-})
+app.use(express.json());
+app.use('/', express.static('public'));
+app.use('api/cart', cart);
