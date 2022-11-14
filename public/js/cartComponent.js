@@ -20,7 +20,7 @@ const cart = {
   components: { cart_item },
   data() {
     return {
-      catalogUrl: `db/catalogData.json`,
+      catalogUrl: `/db/catalogData.json`,
       products: [],
       filtered: [],
       visible: false

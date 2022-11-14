@@ -1,7 +1,7 @@
 const cart_count = {
   data() {
     return {
-      catalogUrl: `db/catalogData.json`,
+      catalogUrl: `/db/catalogData.json`,
       filtered: [],
     }
   },

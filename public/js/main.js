@@ -5,7 +5,7 @@ const API = `https://raw.githubusercontent.com/GeekBrainsTutorial/online-store-a
 const app_cart = new Vue({
   el: '#app_cart',
   data: {
-    catalogUrl: `db/catalogData.json`,
+    catalogUrl: `/db/catalogData.json`,
     basket: [],
     show: false,
     error: false,
