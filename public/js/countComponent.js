@@ -14,10 +14,10 @@ const cart_count = {
   },
 
   mounted() {
-    this.$parent.getProducts(`${this.catalogUrl}`)
+    this.$parent.getJson(`${this.catalogUrl}`)
       .then(data => {
-        for (let el of data) {
-          this.filtered.push(el);
+        for (let item of data) {
+          this.$data.filtered.push(item);
         }
       });
   },

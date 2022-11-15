@@ -21,7 +21,7 @@ const cart = {
   data() {
     return {
       catalogUrl: `/db/catalogData.json`,
-      basket:[],
+      basket: [],
       filtered: [],
       visible: false
     }
@@ -29,19 +29,8 @@ const cart = {
 
   methods: {
 
-    addProduct(item) {
-      const find = this.basket.find(product => product.id_product == item.id_product);
-      if (find) {
-        find.quantity++;
-      } else {
-        const cartItem = Object.assign({ quantity: 1 }, item);
-        this.basket.push(cartItem);
-        this.visible = false;
-      }
-    },
-
     removeProduct(item) {
-      this.$parent.getProducts(`${API}/deleteFromBasket.json`)
+      this.$parent.getJson(`${API}/deleteFromBasket.json`)
         .then(data => {
           if (data.result === 1) {
             if (item.quantity > 1) {
@@ -64,11 +53,11 @@ const cart = {
 
 
   mounted() {
-    this.$parent.getProducts(`${this.catalogUrl}`)
+    this.$parent.getJson(`/api/cart`)
       .then(data => {
-        for (let el of data) {
-          this.basket.push(el);
-          this.filtered.push(el);
+        for (let item of data.contents) {
+          this.$data.basket.push(item);
+          this.$data.filtered.push(item);
         }
       });
   },

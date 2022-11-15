@@ -18,7 +18,7 @@ const cart_total = {
   },
 
   mounted() {
-    this.$parent.getProducts(`${this.catalogUrl}`)
+    this.$parent.getJson(`${this.catalogUrl}`)
       .then(data => {
         for (let el of data) {
           this.filtered.push(el);

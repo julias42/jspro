@@ -5,7 +5,7 @@ const API = `https://raw.githubusercontent.com/GeekBrainsTutorial/online-store-a
 const appCart = new Vue({
   el: '#appCart',
   data: {
-    catalogUrl: `/db/catalogData.json`,
+    //catalogUrl: `/db/catalogData.json`,
     basket: [],
     show: false,
     error: false,
@@ -15,29 +15,85 @@ const appCart = new Vue({
   components: { cart, filter_box, cart_count, cart_total },
 
   methods: {
-    getProducts(url) {
+
+    getJson(url) {
       return fetch(url)
         .then(result => result.json())
         .catch(error => {
           console.log(error);
         })
     },
-  },
+
+    putJson(url, data) {
+      return fetch(url, {
+        method: 'PUT',
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify(data)
+      })
+        .then(result => result.json())
+        .catch(error => {
+          console.log(error);
+        })
+    },
+
+    postJson(url, data) {
+      return fetch(url, {
+        method: 'POST',
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify(data)
+      })
+        .then(result => result.json())
+        .catch(error => {
+          console.log(error);
+        })
+    },
+  }
 });
 
 const appIndex = new Vue({
   el: '#appIndex',
-  data(){
-    return{
-      products:[],
-      catalogUrl:"/db/products.json"
+  data() {
+    return {
+      products: [],
+      //catalogUrl: "/db/products.json"
     }
   },
   components: { sale_center, cart_count, products },
 
   methods: {
-    getProducts(url) {
+    getJson(url) {
       return fetch(url)
+        .then(result => result.json())
+        .catch(error => {
+          console.log(error);
+        })
+    },
+    putJson(url, data) {
+      return fetch(url, {
+        method: 'PUT',
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify(data)
+      })
+        .then(result => result.json())
+        .catch(error => {
+          console.log(error);
+        })
+    },
+
+    postJson(url, data) {
+      return fetch(url, {
+        method: 'POST',
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify(data)
+      })
         .then(result => result.json())
         .catch(error => {
           console.log(error);
