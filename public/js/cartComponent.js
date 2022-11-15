@@ -21,7 +21,7 @@ const cart = {
   data() {
     return {
       catalogUrl: `/db/catalogData.json`,
-      products: [],
+      basket:[],
       filtered: [],
       visible: false
     }
@@ -29,7 +29,7 @@ const cart = {
 
   methods: {
 
-    /*addProduct(item) {
+    addProduct(item) {
       const find = this.basket.find(product => product.id_product == item.id_product);
       if (find) {
         find.quantity++;
@@ -38,7 +38,7 @@ const cart = {
         this.basket.push(cartItem);
         this.visible = false;
       }
-    },*/
+    },
 
     removeProduct(item) {
       this.$parent.getProducts(`${API}/deleteFromBasket.json`)
@@ -57,7 +57,7 @@ const cart = {
 
     filter(values) {
       const regexp = new RegExp(values, 'i');
-      this.filtered = this.products.filter(product => regexp
+      this.filtered = this.basket.filter(product => regexp
         .test(product.product_name));
     },
   },
@@ -67,7 +67,7 @@ const cart = {
     this.$parent.getProducts(`${this.catalogUrl}`)
       .then(data => {
         for (let el of data) {
-          this.products.push(el);
+          this.basket.push(el);
           this.filtered.push(el);
         }
       });

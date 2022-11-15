@@ -213,7 +213,7 @@ img {
     width: 30px;
     display: inline-block;
     color: red;
-    background: url(/img/search.svg) center center no-repeat;
+    background: url(/public/img/search.svg) center center no-repeat;
     text-indent: -1000px;
     border: none;
     outline: none;
@@ -246,9 +246,9 @@ img {
     display: none;
 }
 
-.menu_btn>span,
-.menu_btn>span::before,
-.menu_btn>span::after {
+.menu_btn > span,
+.menu_btn > span::before,
+.menu_btn > span::after {
     display: block;
     position: absolute;
     width: 100%;
@@ -257,26 +257,26 @@ img {
     transition-duration: 0.25s;
 }
 
-.menu_btn>span::before {
+.menu_btn > span::before {
     content: "";
     top: -8px;
 }
 
-.menu_btn>span::after {
+.menu_btn > span::after {
     content: "";
     top: 8px;
 }
 
-.checkbox:checked~.menu_btn>span {
+.checkbox:checked ~ .menu_btn > span {
     transform: rotate(45deg);
 }
 
-.checkbox:checked~.menu_btn>span::before {
+.checkbox:checked ~ .menu_btn > span::before {
     top: 0;
     transform: rotate(0);
 }
 
-.checkbox:checked~.menu_btn>span::after {
+.checkbox:checked ~ .menu_btn > span::after {
     top: 0;
     transform: rotate(90deg);
 }
@@ -339,11 +339,11 @@ img {
     cursor: pointer;
 }
 
-.checkbox:checked~.menu {
+.checkbox:checked ~ .menu {
     transform: translate(0%);
 }
 
-.checkbox:checked~.circle_cart_mobile_heading {
+.checkbox:checked ~ .circle_cart_mobile_heading {
     display: none;
 }
 
@@ -452,8 +452,8 @@ img {
     grid-template-columns: repeat(3, 1fr);
     margin-top: 64px;
     margin-bottom: 96px;
-    opacity: 0;
-    transform: translateY(100%);
+    //opacity: 0;
+    //transform: translateY(100%);
 }
 
 .sale.element-show {
@@ -682,7 +682,7 @@ img {
     grid-template-columns: repeat(2, 1fr);
     align-content: center;
     min-height: 448px;
-    background-image: url(/img/center_footer_background.png);
+    background-image: url(/public/img/center_footer_background.png);
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center bottom;
@@ -735,7 +735,7 @@ img {
 
 .input_icon {
     border: none;
-    background: url(/img/input.icon.png) no-repeat;
+    background: url(/public/img/input.icon.png) no-repeat;
     padding: 17px 40px;
     font-style: normal;
     font-weight: 400;
@@ -756,7 +756,7 @@ img {
 }
 
 .subscribe_button {
-    background-image: url(/img/subscribe.png);
+    background-image: url(/public/img/subscribe.png);
     background-repeat: no-repeat;
     text-align: center;
     font-style: normal;
@@ -1357,7 +1357,7 @@ summary::-webkit-details-marker {
     width: 18px;
     height: 18px;
     cursor: pointer;
-    background-image: url(/img/close.svg);
+    background-image: url(/public/img/close.svg);
 }
 
 .cart_text ul {

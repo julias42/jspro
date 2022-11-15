@@ -1,6 +1,6 @@
 [
   {
-    "img": "/img/cart-img.jpg",
+    "img": "/public/img/cart-img.jpg",
     "product_name": "MANGO PEOPLE SWEATER",
     "Color": "Blue",
     "Size": 50,
@@ -8,7 +8,7 @@
     "quantity": 1
   },
   {
-    "img": "/img/cart-img2.jpg",
+    "img": "/public/img/cart-img2.jpg",
     "product_name": "MANGO PEOPLE JACKET",
     "Color": "Red",
     "Size": 47,
