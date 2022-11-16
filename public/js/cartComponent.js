@@ -30,7 +30,7 @@ const cart = {
   methods: {
 
     removeProduct(item) {
-      this.$parent.getJson(`${API}/deleteFromBasket.json`)
+      this.$parent.getJson(`/api/cart`)
         .then(data => {
           if (data.result === 1) {
             if (item.quantity > 1) {

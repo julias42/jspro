@@ -21,7 +21,7 @@ const products = {
   components: { products_item },
   data() {
     return {
-      basket:[],
+      basket: [],
       products: [],
       filtered: [],
       catalogUrl: `/db/products.json`
@@ -30,7 +30,7 @@ const products = {
   methods: {
 
     addProduct(item) {
-      const find = this.basket.find(el => el.id_product === el.id_product);
+      const find = this.basket.find(el => el.id_product === item.id_product);
       if (find) {
         this.$parent.putJson(`/api/cart/${find.id_product}`, { quantity: 1 })
           .then(data => {
@@ -42,7 +42,7 @@ const products = {
         const prod = Object.assign({ quantity: 1 }, item);
         this.$parent.postJson('/api/cart', prod)
           .then(data => {
-            if (data.result === 1) {
+            if (data.result == 1) {
               this.basket.push(prod)
             }
           })
