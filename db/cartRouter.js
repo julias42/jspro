@@ -14,11 +14,11 @@ router.get('/', (req, res) => {
 });
 
 router.post('/', (req, res) => {
-    handler(req, res, 'add', '/db/catalogData.json');
+    handler(req, res, 'add', 'db/catalogData.json');
 });
 
 router.put('/:id', (req, res) => {
-    handler(req, res, 'change', '/db/catalogData.json');
+    handler(req, res, 'change', 'db/catalogData.json');
 })
 
 /*router.delete('/:id', (req, res) => {

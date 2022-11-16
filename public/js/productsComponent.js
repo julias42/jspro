@@ -30,7 +30,7 @@ const products = {
   methods: {
 
     addProduct(item) {
-      const find = this.basket.find(product => product.id_product === item.id_product);
+      const find = this.basket.find(el => el.id_product === el.id_product);
       if (find) {
         this.$parent.putJson(`/api/cart/${find.id_product}`, { quantity: 1 })
           .then(data => {
