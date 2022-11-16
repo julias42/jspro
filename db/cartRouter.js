@@ -4,11 +4,11 @@ const router = express.Router();
 const handler = require('./handler');
 
 router.get('/', (req, res) => {
-    fs.readFile('/db/catalogData.json', 'utf-8', (err, data) => {
+    fs.readFile('db/catalogData.json', 'utf-8', (err, data) => {
         if (err) {
             res.sendStatus(404, JSON.stringify({ result: 0, text: err }));
         } else {
-            req.send(data);
+            res.send(data);
         }
     })
 });
@@ -21,8 +21,8 @@ router.put('/:id', (req, res) => {
     handler(req, res, 'change', '/db/catalogData.json');
 })
 
-router.delete('/:id', (req, res) => {
+/*router.delete('/:id', (req, res) => {
     handler(req, res, 'remove', '/db/catalogData.json');
-})
+})*/
 
 module.exports = router;

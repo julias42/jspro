@@ -55,7 +55,7 @@ const cart = {
   mounted() {
     this.$parent.getJson(`/api/cart`)
       .then(data => {
-        for (let item of data.contents) {
+        for (let item of data) {
           this.$data.basket.push(item);
           this.$data.filtered.push(item);
         }

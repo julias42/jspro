@@ -18,10 +18,10 @@ const cart_total = {
   },
 
   mounted() {
-    this.$parent.getJson(`${this.catalogUrl}`)
+    this.$parent.getJson(`/api/cart`)
       .then(data => {
-        for (let el of data) {
-          this.filtered.push(el);
+        for (let item of data) {
+          this.$data.filtered.push(item);
         }
       });
   },
