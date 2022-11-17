@@ -16,6 +16,12 @@ const appCart = new Vue({
 
   methods: {
 
+    filter(values) {
+      const regexp = new RegExp(values, 'i');
+      this.filtered = this.basket.filter(product => regexp
+        .test(product.product_name));
+    },
+
     getJson(url) {
       return fetch(url)
         .then(result => result.json())
@@ -63,9 +69,15 @@ const appIndex = new Vue({
     }
   },
 
-  components: { sale_center, cart_count, products },
+  components: { cart, sale_center, cart_count, products, filter_box },
 
   methods: {
+
+    filter(values) {
+      const regexp = new RegExp(values, 'i');
+      this.filtered = this.basket.filter(product => regexp
+        .test(product.product_name));
+    },
 
     getJson(url) {
       return fetch(url)
@@ -103,4 +115,25 @@ const appIndex = new Vue({
         })
     },
   }
+});
+
+const appReg = new Vue({
+  el: '#appReg',
+  data() {
+    return {
+      products: [],
+      catalogUrl: '/db/products.json'
+    }
+  },
+
+  components: { cart, sale_center, cart_count, products, filter_box },
+
+  methods:{
+    getJson(url) {
+    return fetch(url)
+      .then(result => result.json())
+      .catch(error => {
+        console.log(error);
+      })
+  },}
 })

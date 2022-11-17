@@ -28,7 +28,7 @@ const products = {
     }
   },
   methods: {
-
+    
     addProduct(item) {
       const find = this.basket.find(el => el.id_product === item.id_product);
       if (find) {
@@ -42,12 +42,13 @@ const products = {
         const prod = Object.assign({ quantity: 1 }, item);
         this.$parent.postJson('/api/cart', prod)
           .then(data => {
-            if (data.result == 1) {
+            if (data.result === 1) {
               this.basket.push(prod)
             }
           })
       }
     },
+
   },
 
   mounted() {

@@ -43,12 +43,6 @@ const cart = {
           }
         });
     },
-
-    filter(values) {
-      const regexp = new RegExp(values, 'i');
-      this.filtered = this.basket.filter(product => regexp
-        .test(product.product_name));
-    },
   },
 
 
