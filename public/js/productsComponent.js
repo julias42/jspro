@@ -3,7 +3,7 @@ const products_item = {
   template: `
       <div class="items_card">
           <img class="image_card" :src="products_item.img" alt="photo">
-          <a href="/public/catalog.html" class="featured_card_zag">{{products_item.name}}</a>
+          <a href="/catalog.html" class="featured_card_zag">{{products_item.product_name}}</a>
           <p class="featured_card_text">Known for her sculptural takes on traditional tailoring, Australian
               arbiter of
               cool Kym Ellery teams up with Moda Operandi.</p>
@@ -28,11 +28,11 @@ const products = {
     }
   },
   methods: {
-    
+
     addProduct(item) {
-      const find = this.basket.find(el => el.id_product === item.id_product);
+      const find = this.basket.find(el => el.id === item.id);
       if (find) {
-        this.$parent.putJson(`/api/cart/${find.id_product}`, { quantity: 1 })
+        this.$parent.putJson(`/api/cart/${find.id}`, { quantity: 1 })
           .then(data => {
             if (data.result === 1) {
               find.quantity++

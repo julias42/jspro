@@ -30,21 +30,26 @@ const cart = {
   methods: {
 
     removeProduct(item) {
-      this.$parent.getJson(`/api/cart`)
+    if(item.quantity < 1){
+      this.$parent.getJson(`/api/cart/${item.id}`,{quantity: -1})
         .then(data => {
-          if (data.result === 1) {
-            if (item.quantity > 1) {
+          if (data.result) {
               item.quantity--;
-            } else {
-              this.filtered.splice(this.filtered.indexOf(item), 1);
-            } if (this.filtered.length === 0) {
-              this.visible = true;
-            }
           }
-        });
+        })
+           } else {
+              this.$parent.delJson(`/api/cart/${item.id}`, item)
+                .then(data=>{
+                  if(data.result){
+                    this.filtered.splice(this.filtered.indexOf(item), 1);
+                    this.visible = true;
+                  }else  {
+                    console.log('error');
+                  }
+                })
+              }
+          }
     },
-  },
-
 
   mounted() {
     this.$parent.getJson(`/api/cart`)

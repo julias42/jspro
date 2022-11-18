@@ -57,6 +57,20 @@ const appCart = new Vue({
           console.log(error);
         })
     },
+    
+    delJson(url, data) {
+      return fetch(url, {
+        method: 'DELETE',
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify(data)
+      })
+        .then(result => result.json())
+        .catch(error => {
+          console.log(error);
+        })
+    },
   }
 });
 
@@ -64,12 +78,14 @@ const appIndex = new Vue({
   el: '#appIndex',
   data() {
     return {
+      basket:[],
+      filtered:[],
       products: [],
       catalogUrl: '/db/products.json'
     }
   },
 
-  components: { cart, sale_center, cart_count, products, filter_box },
+  components: { sale_center, cart_count, products, filter_box },
 
   methods: {
 

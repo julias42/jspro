@@ -5,7 +5,7 @@
         "product_name": "ELLERY X M'O CAPSULE",
         "Color": "Blue",
         "Size": 50,
-        "price": 52,
+        "price": 152,
         "quantity": 1
     },
     {
@@ -14,7 +14,7 @@
         "product_name": "ELLERY X M'O CAPSULE",
         "Color": "Blue",
         "Size": 50,
-        "price": 52,
+        "price": 452,
         "quantity": 1
     },
     {
@@ -23,7 +23,7 @@
         "product_name": "ELLERY X M'O CAPSULE",
         "Color": "Blue",
         "Size": 50,
-        "price": 52,
+        "price": 520,
         "quantity": 1
     },
     {
@@ -32,7 +32,7 @@
         "product_name": "ELLERY X M'O CAPSULE",
         "Color": "Blue",
         "Size": 50,
-        "price": 52,
+        "price": 524,
         "quantity": 1
     },
     {
@@ -41,7 +41,7 @@
         "product_name": "ELLERY X M'O CAPSULE",
         "Color": "Blue",
         "Size": 50,
-        "price": 52,
+        "price": 324,
         "quantity": 1
     },
     {
@@ -49,8 +49,16 @@
         "img": "/img/itemscard6.jpg",
         "product_name": "ELLERY X M'O CAPSULE",
         "Color": "Blue",
-        "Size": 50,
-        "price": 52,
+        "Size": 258,
+        "price": 52
+    },
+    {
+        "id":28,
+        "img": "/img/cart-img2.jpg",
+        "product_name": "MANGO PEOPLE JACKET",
+        "Color": "Red",
+        "Size": 47,
+        "price": 1120,
         "quantity": 1
     }
 ]

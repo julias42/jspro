@@ -19,10 +19,10 @@ router.post('/', (req, res) => {
 
 router.put('/:id', (req, res) => {
     handler(req, res, 'change', 'db/catalogData.json');
-})
+});
 
-/*router.delete('/:id', (req, res) => {
-    handler(req, res, 'remove', '/db/catalogData.json');
-})*/
+router.delete('/:id', (req, res) => {
+    handler(req, res, 'remove', 'db/catalogData.json');
+});
 
 module.exports = router;
