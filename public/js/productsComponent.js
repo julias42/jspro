@@ -44,6 +44,7 @@ const products = {
           .then(data => {
             if (data.result === 1) {
               this.basket.push(prod)
+              this.filtered.push(prod)
             }
           })
       }

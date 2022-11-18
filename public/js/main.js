@@ -78,8 +78,6 @@ const appIndex = new Vue({
   el: '#appIndex',
   data() {
     return {
-      basket:[],
-      filtered:[],
       products: [],
       catalogUrl: '/db/products.json'
     }

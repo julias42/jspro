@@ -41,7 +41,7 @@ const cart = {
               this.$parent.delJson(`/api/cart/${item.id}`, item)
                 .then(data=>{
                   if(data.result){
-                    this.filtered.splice(this.filtered.indexOf(item), 1);
+                    this.basket.splice(this.basket.indexOf(item), 1);
                     this.visible = true;
                   }else  {
                     console.log('error');
@@ -66,7 +66,7 @@ const cart = {
       <div class="cart_none" v-show="visible">
       <h3 class="cart_none_text">Your basket is empty</h3>
     </div>
-          <cart_item v-for="item of filtered" 
+          <cart_item v-for="item of basket" 
           :cart_item="item">
           </cart_item>
     </section>`

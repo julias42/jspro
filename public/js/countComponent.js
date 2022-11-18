@@ -2,6 +2,7 @@ const cart_count = {
   data() {
     return {
       catalogUrl: `/db/catalogData.json`,
+      products: [],
       filtered: [],
     }
   },
@@ -18,6 +19,7 @@ const cart_count = {
     this.$parent.getJson(`api/cart`)
       .then(data => {
         for (let el of data) {
+          this.$data.products.push(el);
           this.$data.filtered.push(el);
         }
       });
