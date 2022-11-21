@@ -15,6 +15,7 @@ const products_item = {
                     fill="white" />
           </svg>Add to Cart</button>
         </div>`
+        
 };
 
 const products = {
@@ -47,6 +48,7 @@ const products = {
               this.filtered.push(prod)
             }
           })
+          console.log(prod, item, this.basket)
       }
     },
 
