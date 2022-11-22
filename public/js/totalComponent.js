@@ -2,14 +2,14 @@ const cart_total = {
   data() {
     return {
       catalogUrl: `/db/catalogData.json`,
-      filtered: []
+      basket: []
     }
   },
   methods: {
 
     getTotal() {
       let total = 0;
-      this.filtered.map((item) => {
+      this.basket.map((item) => {
         total += (item.quantity * item.price);
       });
       return total;
@@ -20,8 +20,8 @@ const cart_total = {
   mounted() {
     this.$parent.getJson(`/api/cart`)
       .then(data => {
-        for (let el of data) {
-          this.$data.filtered.push(el);
+        for (let el of data.contents) {
+          this.basket.push(el);
         }
       });
   },

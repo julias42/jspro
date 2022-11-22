@@ -30,7 +30,7 @@ const cart = {
   methods: {
 
     removeProduct(item) {
-    if(item.quantity < 1){
+    if(item.quantity > 1){
       this.$parent.getJson(`/api/cart/${item.id}`,{quantity: -1})
         .then(data => {
           if (data.result) {
@@ -40,23 +40,25 @@ const cart = {
            } else {
               this.$parent.delJson(`/api/cart/${item.id}`, item)
                 .then(data=>{
-                  if(data.result){
+                  if (data.result){
                     this.basket.splice(this.basket.indexOf(item), 1);
+                  }if (this.basket.length === 0){
                     this.visible = true;
                   }else  {
                     console.log('error');
                   }
                 })
               }
+              console.log(this.basket)
           }
     },
 
   mounted() {
     this.$parent.getJson(`/api/cart`)
       .then(data => {
-        for (let el of data) {
-          this.$data.basket.push(el);
-          this.$data.filtered.push(el);
+        for (let el of data.contents) {
+          this.basket.push(el);
+          this.filtered.push(el);
         }
       });
   },

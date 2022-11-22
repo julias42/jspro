@@ -6,21 +6,14 @@ const appCart = new Vue({
   el: '#appCart',
   data: {
     catalogUrl: '/db/catalogData.json',
-    basket: [],
     show: false,
     error: false,
     visible: false
   },
 
-  components: { cart, filter_box, cart_count, cart_total },
+  components: { cart, cart_count, cart_total, filter_box },
 
   methods: {
-
-    filter(values) {
-      const regexp = new RegExp(values, 'i');
-      this.filtered = this.basket.filter(product => regexp
-        .test(product.product_name));
-    },
 
     getJson(url) {
       return fetch(url)
@@ -30,7 +23,7 @@ const appCart = new Vue({
         })
     },
 
-    putJson(url, data) {
+    /*putJson(url, data) {
       return fetch(url, {
         method: 'PUT',
         headers: {
@@ -56,7 +49,7 @@ const appCart = new Vue({
         .catch(error => {
           console.log(error);
         })
-    },
+    },*/
     
     delJson(url, data) {
       return fetch(url, {
@@ -86,12 +79,6 @@ const appIndex = new Vue({
   components: { sale_center, cart_count, products, filter_box },
 
   methods: {
-
-    filter(values) {
-      const regexp = new RegExp(values, 'i');
-      this.filtered = this.basket.filter(product => regexp
-        .test(product.product_name));
-    },
 
     getJson(url) {
       return fetch(url)

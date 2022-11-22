@@ -45,10 +45,9 @@ const products = {
           .then(data => {
             if (data.result === 1) {
               this.basket.push(prod)
-              this.filtered.push(prod)
             }
           })
-          console.log(prod, item, this.basket)
+          console.log(this.products, this.basket)
       }
     },
 
@@ -59,8 +58,8 @@ const products = {
     this.$parent.getJson(`/api/products`)
       .then(data => {
         for (let el of data) {
-          this.$data.products.push(el);
-          this.$data.filtered.push(el);
+          this.products.push(el);
+          this.filtered.push(el);
         }
       });
   },

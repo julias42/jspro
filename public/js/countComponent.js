@@ -2,14 +2,13 @@ const cart_count = {
   data() {
     return {
       catalogUrl: `/db/catalogData.json`,
-      products: [],
-      filtered: [],
+      basket: []
     }
   },
 
   methods: {
     getCount() {
-      return Object.values(this.filtered)
+      return Object.values(this.basket)
         .reduce((acc, product) => acc + product.quantity, 0);
     },
   },
@@ -18,9 +17,8 @@ const cart_count = {
 
     this.$parent.getJson(`api/cart`)
       .then(data => {
-        for (let el of data) {
-          this.$data.products.push(el);
-          this.$data.filtered.push(el);
+        for (let el of data.contents) {
+          this.basket.push(el);
         }
       });
   },

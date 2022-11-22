@@ -1561,7 +1561,6 @@ summary::-webkit-details-marker {
       -ms-flex-align: center;
           align-items: center;
   text-align: center;
-  visibility: hidden;
   font-style: normal;
   width: 100%;
   font-weight: 400;
