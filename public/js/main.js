@@ -75,7 +75,6 @@ const appIndex = new Vue({
     },
 
     postJson(url, data) {
-      console.log(JSON.stringify(data))
       return fetch(url, {
         method: 'POST',
         headers: {
@@ -102,12 +101,13 @@ const appReg = new Vue({
 
   components: { cart, sale_center, cart_count, products, filter_box },
 
-  methods:{
+  methods: {
     getJson(url) {
-    return fetch(url)
-      .then(result => result.json())
-      .catch(error => {
-        console.log(error);
-      })
-  },}
+      return fetch(url)
+        .then(result => result.json())
+        .catch(error => {
+          console.log(error);
+        })
+    },
+  }
 })

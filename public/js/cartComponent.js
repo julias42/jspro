@@ -30,34 +30,34 @@ const cart = {
   methods: {
 
     removeProduct(item) {
-    if(item.quantity > 1){
-      this.$parent.getJson(`/api/cart/${item.id}`,{quantity: -1})
-        .then(data => {
-          if (data.result) {
+      if (item.quantity > 1) {
+        this.$parent.getJson(`/api/cart/${item.id}`, { quantity: -1 })
+          .then(data => {
+            if (data.result) {
               item.quantity--;
-          }
-        })
-           } else {
-              this.$parent.delJson(`/api/cart/${item.id}`, item)
-                .then(data=>{
-                  if (data.result){
-                    this.basket.splice(this.basket.indexOf(item), 1);
-                  } if (this.basket.length === 0){
-                    this.visible = true;
-                  } else  {
-                    console.log('error');
-                  }
-                })
-              }
-          }
-    },
+            }
+          })
+      } else {
+        this.$parent.delJson(`/api/cart/${item.id}`, item)
+          .then(data => {
+            if (data.result) {
+              this.basket.splice(this.basket.indexOf(item), 1);
+            } if (this.basket.length === 0) {
+              this.visible = true;
+            } else {
+              console.log('error');
+            }
+          })
+      }
+    }
+  },
 
   mounted() {
     this.$parent.getJson(`/api/cart`)
       .then(data => {
-        for (let el of data.contents) {
-          this.basket.push(el);
-          this.filtered.push(el);
+        for (let item of data.contents) {
+          this.basket.push(item);
+          this.filtered.push(item);
         }
       });
   },

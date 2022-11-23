@@ -15,7 +15,7 @@ const products_item = {
                     fill="white" />
           </svg>Add to Cart</button>
         </div>`
-        
+
 };
 
 const products = {
@@ -28,9 +28,10 @@ const products = {
       catalogUrl: `/db/products.json`
     }
   },
-  methods: {
 
+  methods: {
     addProduct(item) {
+      console.dir(item)
       const find = this.basket.find(el => el.id === item.id);
       if (find) {
         this.$parent.putJson(`/api/cart/${find.id}`, { quantity: 1 })
@@ -41,6 +42,7 @@ const products = {
           })
       } else {
         const prod = Object.assign({ quantity: 1 }, item);
+        console.log(prod)
         this.$parent.postJson('/api/cart', prod)
           .then(data => {
             if (data.result === 1) {
@@ -53,12 +55,11 @@ const products = {
   },
 
   mounted() {
-
     this.$parent.getJson(`/api/products`)
       .then(data => {
-        for (let el of data) {
-          this.products.push(el);
-          this.filtered.push(el);
+        for (let item of data) {
+          this.products.push(item);
+          this.filtered.push(item);
         }
       });
   },
