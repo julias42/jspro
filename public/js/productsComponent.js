@@ -47,7 +47,6 @@ const products = {
               this.basket.push(prod)
             }
           })
-          console.log(this.products, this.basket)
       }
     },
 

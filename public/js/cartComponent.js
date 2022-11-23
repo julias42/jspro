@@ -42,14 +42,13 @@ const cart = {
                 .then(data=>{
                   if (data.result){
                     this.basket.splice(this.basket.indexOf(item), 1);
-                  }if (this.basket.length === 0){
+                  } if (this.basket.length === 0){
                     this.visible = true;
-                  }else  {
+                  } else  {
                     console.log('error');
                   }
                 })
               }
-              console.log(this.basket)
           }
     },
 
