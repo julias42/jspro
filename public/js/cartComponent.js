@@ -28,7 +28,6 @@ const cart = {
   },
 
   methods: {
-
     removeProduct(item) {
       if (item.quantity > 1) {
         this.$parent.putJson(`/api/cart/${item.id}`, { quantity: -1 })
@@ -42,8 +41,6 @@ const cart = {
           .then(data => {
             if (data.result) {
               this.basket.splice(this.basket.indexOf(item), 1);
-            } if (this.basket.length <= 0) {
-              this.visible = false;
             } else {
               console.log('error');
             }
@@ -58,6 +55,8 @@ const cart = {
         for (let item of data.contents) {
           this.basket.push(item);
           this.filtered.push(item);
+        } if (this.basket.length != 0) {
+          this.visible = false;
         }
       });
   },
