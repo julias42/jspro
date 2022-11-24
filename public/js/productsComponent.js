@@ -25,7 +25,8 @@ const products = {
       basket: [],
       products: [],
       filtered: [],
-      catalogUrl: `/db/products.json`
+      catalogUrl: `/db/products.json`,
+      visble: true
     }
   },
 
@@ -45,6 +46,10 @@ const products = {
           .then(data => {
             if (data.result === 1) {
               this.basket.push(prod)
+              console.log(this.basket.length)
+              if (this.basket.length > 0) {
+                this.visible = false;
+              }
             }
           });
       }

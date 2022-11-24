@@ -23,7 +23,7 @@ const cart = {
       catalogUrl: `/db/catalogData.json`,
       basket: [],
       filtered: [],
-      visible: false
+      visible: true
     }
   },
 
@@ -42,8 +42,8 @@ const cart = {
           .then(data => {
             if (data.result) {
               this.basket.splice(this.basket.indexOf(item), 1);
-            } if (this.basket.length === 0) {
-              this.visible = true;
+            } if (this.basket.length <= 0) {
+              this.visible = false;
             } else {
               console.log('error');
             }
