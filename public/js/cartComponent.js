@@ -1,8 +1,8 @@
 const cart_item = {
-  props: ['cart_item'],
+  props: ['cart_item', 'img'],
   template: `
   <div class="cart">
-  <img :src="cart_item.img" alt="photo">
+  <img class="cart_image" :src="img" alt="photo">
   <div class="cart_text">
     <a class="mango" href="product.html">{{cart_item.product_name}}</a>
     <ul>
@@ -31,7 +31,7 @@ const cart = {
 
     removeProduct(item) {
       if (item.quantity > 1) {
-        this.$parent.getJson(`/api/cart/${item.id}`, { quantity: -1 })
+        this.$parent.putJson(`/api/cart/${item.id}`, { quantity: -1 })
           .then(data => {
             if (data.result) {
               item.quantity--;
@@ -68,7 +68,8 @@ const cart = {
       <h3 class="cart_none_text">Your basket is empty</h3>
     </div>
           <cart_item v-for="item of basket" 
-          :cart_item="item">
+          :cart_item="item"
+          :img="item.img">
           </cart_item>
     </section>`
 };
