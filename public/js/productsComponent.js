@@ -49,6 +49,12 @@ const products = {
           });
       }
     },
+
+    filter(value) {
+      const regexp = new RegExp(value, 'i');
+      this.filtered = this.products.filter(product => regexp
+        .test(product.product_name));
+    }
   },
 
   mounted() {

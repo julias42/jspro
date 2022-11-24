@@ -23,5 +23,6 @@ const cart_count = {
       });
   },
 
-  template: `<div class="circle_cart">{{getCount()}}</div>`
+  template: `<div class="circle_cart">{{getCount()}}</div>
+            <div class="circle_cart_mobile_heading">{{getCount()}}</div>`
 }
