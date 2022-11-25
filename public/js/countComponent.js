@@ -2,7 +2,8 @@ const cart_count = {
   data() {
     return {
       catalogUrl: `/db/catalogData.json`,
-      basket: []
+      basket: [],
+      totalCount: 0
     }
   },
 

@@ -45,6 +45,7 @@ const products = {
           .then(data => {
             if (data.result === 1) {
               this.basket.push(prod)
+              console.log(this.basket)
             }
           });
       }

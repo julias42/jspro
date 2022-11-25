@@ -16,9 +16,10 @@ const app = new Vue({
     cart_total,
     filter_box,
     sale_center,
-    cart_count,
+   cart_count,
     products,
-    filter_box
+    filter_box,
+    cart_dropdown
   },
 
   methods: {
