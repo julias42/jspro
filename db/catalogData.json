@@ -1,13 +1,3 @@
 {
-    "contents": [
-        {
-            "quantity": 3,
-            "id": 31,
-            "img": "/img/itemscard1.jpg",
-            "product_name": "ELLERY X M'O CAPSULE",
-            "Color": "Blue",
-            "Size": 50,
-            "price": 152
-        }
-    ]
+    "contents": []
 }

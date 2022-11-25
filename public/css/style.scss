@@ -394,6 +394,7 @@ img {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     gap: 10px;
+    min-width: 350px;
     margin-bottom: 10px;
     border-bottom: 1px solid #ebebeb;
     padding-bottom: 10px;
@@ -401,6 +402,9 @@ img {
 
 .basketHeader {
     font-weight: bold;
+}
+.basketHead {
+    padding-bottom: 10px;
 }
 
 .basketTotal {
@@ -1333,6 +1337,13 @@ summary::-webkit-details-marker {
     line-height: 29px;
     color: #c4c4c4;
     min-width: 692px;
+}
+.cart_noneDropdown_text {
+    display: flex;
+    width: 150px;
+    height: 25px;
+    justify-content: center;
+    align-items: center;
 }
 
 .cart:hover {

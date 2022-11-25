@@ -25,5 +25,5 @@ const cart_count = {
   },
 
   template: `<div class="circle_cart">{{getCount()}}</div>
-            <div class="circle_cart_mobile_heading">{{getCount()}}</div>`
+            <div class="circle_cart_mobile">{{getCount()}}</div>`
 }

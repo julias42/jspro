@@ -45,7 +45,7 @@
     align-items: center;
     position: absolute;
     top: -6px;
-    right: -12px;
+    right: 22px;
     clip-path: circle(50%);
     height: 19px;
     width: 19px;
@@ -105,7 +105,7 @@
     margin-top: 148px;
   }
 
-  .checkbox:checked~.menu {
+  .checkbox:checked ~ .menu {
     transform: translate(0%);
   }
 
