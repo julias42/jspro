@@ -19,7 +19,8 @@ const app = new Vue({
    cart_count,
     products,
     filter_box,
-    cart_dropdown
+    cart_dropdown,
+    cart_count_mobile_dropdown
   },
 
   methods: {
