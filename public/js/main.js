@@ -15,8 +15,8 @@ const app = new Vue({
     cart_count_mobile,
     cart_total,
     filter_box,
-    sale_center,
-   cart_count,
+    scroll,
+    cart_count,
     products,
     filter_box,
     cart_dropdown,
@@ -24,6 +24,16 @@ const app = new Vue({
   },
 
   methods: {
+
+    handleScroll(evt,el){
+      if(window.pageYOffset >  350){
+          el.setAttribute(
+              'style',
+              'opacity: 1; transform: translateY(0%)'
+          )
+      }
+      return window.pageYOffset > 400
+  },
 
     getJson(url) {
       return fetch(url)

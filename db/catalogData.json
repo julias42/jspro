@@ -26,6 +26,15 @@
             "Color": "Blue",
             "Size": 50,
             "price": 520
+        },
+        {
+            "quantity": 1,
+            "id": 35,
+            "img": "/img/itemscard5.jpg",
+            "product_name": "ELLERY X M'O CAPSULE",
+            "Color": "Blue",
+            "Size": 50,
+            "price": 324
         }
     ]
 }

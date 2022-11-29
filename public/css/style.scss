@@ -456,8 +456,9 @@ img {
     grid-template-columns: repeat(3, 1fr);
     margin-top: 64px;
     margin-bottom: 96px;
-    //opacity: 0;
-    //transform: translateY(100%);
+    opacity: 0;
+    transition: 1.5s all cubic-bezier(0.17, 0, 0.39, 0.98);
+    transform: translateY(100%);
 }
 
 .sale.element-show {
@@ -1649,6 +1650,7 @@ input[type="number"]::-webkit-outer-spin-button {
     position: relative;
     z-index: 2;
     margin-bottom: 130px;
+    transition: 1.5s all cubic-bezier(0.17, 0, 0.39, 0.98);
     opacity: 0;
     transform: translateY(100%);
 
