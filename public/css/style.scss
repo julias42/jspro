@@ -213,7 +213,7 @@ img {
     width: 30px;
     display: inline-block;
     color: red;
-    background: url(img/search.svg) center center no-repeat;
+    background: url(/img/search.svg) center center no-repeat;
     text-indent: -1000px;
     border: none;
     outline: none;
@@ -394,6 +394,7 @@ img {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     gap: 10px;
+    min-width: 350px;
     margin-bottom: 10px;
     border-bottom: 1px solid #ebebeb;
     padding-bottom: 10px;
@@ -401,6 +402,9 @@ img {
 
 .basketHeader {
     font-weight: bold;
+}
+.basketHead {
+    padding-bottom: 10px;
 }
 
 .basketTotal {
@@ -453,6 +457,7 @@ img {
     margin-top: 64px;
     margin-bottom: 96px;
     opacity: 0;
+    transition: 1.5s all cubic-bezier(0.17, 0, 0.39, 0.98);
     transform: translateY(100%);
 }
 
@@ -682,7 +687,7 @@ img {
     grid-template-columns: repeat(2, 1fr);
     align-content: center;
     min-height: 448px;
-    background-image: url(img/center_footer_background.png);
+    background-image: url(/img/center_footer_background.png);
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center bottom;
@@ -735,7 +740,7 @@ img {
 
 .input_icon {
     border: none;
-    background: url(img/input.icon.png) no-repeat;
+    background: url(/img/input.icon.png) no-repeat;
     padding: 17px 40px;
     font-style: normal;
     font-weight: 400;
@@ -756,7 +761,7 @@ img {
 }
 
 .subscribe_button {
-    background-image: url(img/subscribe.png);
+    background-image: url(/img/subscribe.png);
     background-repeat: no-repeat;
     text-align: center;
     font-style: normal;
@@ -1287,10 +1292,6 @@ summary::-webkit-details-marker {
     margin-bottom: 73px;
 }
 
-.cart_content-box {
-    display: flex;
-    flex-wrap: wrap;
-}
 .cart_card {
     display: flex;
     flex-wrap: wrap;
@@ -1314,6 +1315,10 @@ summary::-webkit-details-marker {
     transition: all 0.5s ease-out;
 }
 
+.cart_image {
+    width: 40%;
+}
+
 .cart_none {
     display: flex;
     justify-content: center;
@@ -1321,13 +1326,25 @@ summary::-webkit-details-marker {
     text-align: center;
     font-style: normal;
     width: 100%;
+    font-weight: 400;
+    font-size: 24px;
+    line-height: 29px;
+    color: #222222;
 }
+
 .cart_none_text {
     font-weight: 400;
     font-size: 24px;
     line-height: 29px;
     color: #c4c4c4;
     min-width: 692px;
+}
+.cart_noneDropdown_text {
+    display: flex;
+    width: 150px;
+    height: 25px;
+    justify-content: center;
+    align-items: center;
 }
 
 .cart:hover {
@@ -1355,7 +1372,7 @@ summary::-webkit-details-marker {
     width: 18px;
     height: 18px;
     cursor: pointer;
-    background-image: url(img/close.svg);
+    background-image: url(/img/close.svg);
 }
 
 .cart_text ul {
@@ -1633,6 +1650,7 @@ input[type="number"]::-webkit-outer-spin-button {
     position: relative;
     z-index: 2;
     margin-bottom: 130px;
+    transition: 1.5s all cubic-bezier(0.17, 0, 0.39, 0.98);
     opacity: 0;
     transform: translateY(100%);
 

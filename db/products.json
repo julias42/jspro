@@ -1,0 +1,50 @@
+[
+    {
+        "id": 31,
+        "img": "/img/itemscard1.jpg",
+        "product_name": "ELLERY X M'O CAPSULE",
+        "Color": "Blue",
+        "Size": 50,
+        "price": 152
+    },
+    {
+        "id": 32,
+        "img": "/img/itemscard2.png",
+        "product_name": "ELLERY X M'O CAPSULE",
+        "Color": "Blue",
+        "Size": 50,
+        "price": 452
+    },
+    {
+        "id": 33,
+        "img": "/img/itemscard3.jpg",
+        "product_name": "ELLERY X M'O CAPSULE",
+        "Color": "Blue",
+        "Size": 50,
+        "price": 520
+    },
+    {
+        "id": 34,
+        "img": "/img/itemscard4.jpg",
+        "product_name": "ELLERY X M'O CAPSULE",
+        "Color": "Blue",
+        "Size": 50,
+        "price": 524
+    },
+    {
+        "id": 35,
+        "img": "/img/itemscard5.jpg",
+        "product_name": "ELLERY X M'O CAPSULE",
+        "Color": "Blue",
+        "Size": 50,
+        "price": 324
+    },
+    {
+        "id": 36,
+        "img": "/img/itemscard6.jpg",
+        "product_name": "ELLERY X M'O CAPSULE",
+        "Color": "Blue",
+        "Size": 258,
+        "price": 52
+    }
+]

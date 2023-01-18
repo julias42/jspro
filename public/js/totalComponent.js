@@ -1,22 +1,33 @@
 const cart_total = {
-  data(){
+  data() {
     return {
-      filtered:[]
+      catalogUrl: `/db/catalogData.json`,
+      basket: []
     }
   },
-  methods:{
+  methods: {
 
     getTotal() {
       let total = 0;
-      this.filtered.map((item) => {
+      this.basket.map((item) => {
         total += (item.quantity * item.price);
       });
       return total;
     },
 
   },
+
+  mounted() {
+    this.$parent.getJson(`/api/cart`)
+      .then(data => {
+        for (let el of data.contents) {
+          this.basket.push(el);
+        }
+      });
+  },
+
   template:
-  `<div class="total_heading">
+    `<div class="total_heading">
   <div class="sub_total">
     <h3>SUB TOTAL<span>{{getTotal()}}$</span></h3>
   </div>
